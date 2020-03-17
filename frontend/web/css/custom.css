@@ -1,0 +1,22 @@
+
+.link-breadcrumb:hover {
+    color: #107CFB;
+}
+
+.link-breadcrumb:hover::before {
+    opacity: 0;
+}
+
+/* hit-sales__tabs */
+
+.hit-sales__tabs li.active a, .hit-sales__tabs li a {
+    font-size: 16px;
+}
+
+/* icon cart */
+
+.menu-cart .cart-product-count {
+    border: 0;
+}
+
+
