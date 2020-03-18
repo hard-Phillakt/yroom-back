@@ -19,15 +19,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
+    <?= $form->field($model, 'slug') ?>
+
     <?= $form->field($model, 'description') ?>
 
-    <?= $form->field($model, 'img') ?>
-
-    <?= $form->field($model, 'date') ?>
-
-    <?php // echo $form->field($model, 'published') ?>
+    <?= $form->field($model, 'published') ?>
 
     <?php // echo $form->field($model, 'prioritet') ?>
+
+    <?php // echo $form->field($model, 'date') ?>
+
+    <?php // echo $form->field($model, 'img') ?>
+
+    <?php // echo $form->field($model, 'title_link') ?>
+
+    <?php // echo $form->field($model, 'link') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

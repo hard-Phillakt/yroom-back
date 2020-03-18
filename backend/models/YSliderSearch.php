@@ -17,8 +17,8 @@ class YSliderSearch extends YSlider
     public function rules()
     {
         return [
-            [['id', 'published', 'prioritet'], 'integer'],
-            [['title', 'description', 'img', 'date'], 'safe'],
+            [['id', 'published', 'prioritet', 'date'], 'integer'],
+            [['title', 'slug', 'description', 'img', 'title_link', 'link'], 'safe'],
         ];
     }
 
@@ -61,12 +61,15 @@ class YSliderSearch extends YSlider
             'id' => $this->id,
             'published' => $this->published,
             'prioritet' => $this->prioritet,
+            'date' => $this->date,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'img', $this->img])
-            ->andFilterWhere(['like', 'date', $this->date]);
+            ->andFilterWhere(['like', 'title_link', $this->title_link])
+            ->andFilterWhere(['like', 'link', $this->link]);
 
         return $dataProvider;
     }

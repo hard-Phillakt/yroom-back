@@ -8,7 +8,6 @@ use backend\models\YSliderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * YSliderController implements the CRUD actions for YSlider model.
@@ -26,26 +25,6 @@ class YSliderController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
-            ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => [],
-                'rules' => [
-                    [
-                        'allow' => false,
-                        'actions' => [],
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => [],
-                        'roles' => ['@'],
-                    ],
-                ],
-                'denyCallback' => function() {
-
-                    return $this->redirect('/');
-                }
             ],
         ];
     }

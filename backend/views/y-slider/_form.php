@@ -14,15 +14,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'date')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'published')->textInput() ?>
 
     <?= $form->field($model, 'prioritet')->textInput() ?>
+
+    <?= $form->field($model, 'date')->textInput() ?>
+
+    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'title_link')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

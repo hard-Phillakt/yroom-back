@@ -18,7 +18,7 @@ class YStockSearch extends YStock
     {
         return [
             [['id', 'published', 'prioritet'], 'integer'],
-            [['title', 'description', 'meta_title', 'meta_description', 'img_prev', 'essence', 'date'], 'safe'],
+            [['title', 'description', 'meta_title', 'meta_description', 'img_prev', 'essence', 'date', 'slug'], 'safe'],
         ];
     }
 
@@ -69,7 +69,8 @@ class YStockSearch extends YStock
             ->andFilterWhere(['like', 'meta_description', $this->meta_description])
             ->andFilterWhere(['like', 'img_prev', $this->img_prev])
             ->andFilterWhere(['like', 'essence', $this->essence])
-            ->andFilterWhere(['like', 'date', $this->date]);
+            ->andFilterWhere(['like', 'date', $this->date])
+            ->andFilterWhere(['slug', 'date', $this->date]);
 
         return $dataProvider;
     }

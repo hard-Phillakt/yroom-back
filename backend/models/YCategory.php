@@ -4,6 +4,8 @@ namespace backend\models;
 
 use Yii;
 
+use yii\behaviors\SluggableBehavior;
+
 /**
  * This is the model class for table "y_category".
  *
@@ -17,6 +19,18 @@ use Yii;
  */
 class YCategory extends \yii\db\ActiveRecord
 {
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+            ],
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */

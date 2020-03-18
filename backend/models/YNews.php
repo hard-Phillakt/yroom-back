@@ -4,6 +4,8 @@ namespace backend\models;
 
 use Yii;
 
+use yii\behaviors\SluggableBehavior;
+
 /**
  * This is the model class for table "y_news".
  *
@@ -20,6 +22,18 @@ use Yii;
  */
 class YNews extends \yii\db\ActiveRecord
 {
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+            ],
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -35,7 +49,7 @@ class YNews extends \yii\db\ActiveRecord
     {
         return [
             [['published', 'prioritet'], 'integer'],
-            [['title', 'description', 'meta_title', 'meta_description', 'img_prev', 'essence'], 'string', 'max' => 255],
+            [['title', 'description', 'meta_title', 'meta_description', 'img_prev', 'essence', 'slug'], 'string', 'max' => 255],
             [['date'], 'string', 'max' => 10],
         ];
     }
@@ -56,6 +70,7 @@ class YNews extends \yii\db\ActiveRecord
             'date' => 'Дата',
             'published' => 'Публикация',
             'prioritet' => 'Приоритет',
+            'slug' => 'Альт название',
         ];
     }
 }

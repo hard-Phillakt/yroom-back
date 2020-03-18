@@ -4,6 +4,8 @@ namespace backend\models;
 
 use Yii;
 
+use yii\behaviors\SluggableBehavior;
+
 /**
  * This is the model class for table "y_stock".
  *
@@ -21,6 +23,18 @@ use Yii;
 
 class YStock extends \yii\db\ActiveRecord
 {
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+            ],
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -57,6 +71,7 @@ class YStock extends \yii\db\ActiveRecord
             'date' => 'Date',
             'published' => 'Публикация',
             'prioritet' => 'Приоритет',
+            'slug' => 'Альт название',
         ];
     }
 }

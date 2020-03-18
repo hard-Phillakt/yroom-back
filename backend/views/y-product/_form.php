@@ -22,7 +22,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+<!--    --><?//= $form->field($model, 'category_id')->textInput() ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList([
+            '1' => 'Ламинат',
+            '2' => 'Линолеум',
+            '3' => 'Ковры',
+            '4' => 'Ковровые дорожки',
+    ]) ?>
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 

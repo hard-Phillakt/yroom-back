@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\menuMobile\MenuMobile;
+use yii\helpers\Url;
+
 
 AppAsset::register($this);
 
@@ -85,54 +87,12 @@ AppAsset::register($this);
         </nav>
     </header>
 
-
     <?php if (Yii::$app->request->resolve()[0] !== 'index/index'): ?>
 
         <section class="layers-banner" style="background: url(../img/slider/slider-1.png);"></section>
 
-    <?php else: ?>
-
-        <section class="slider">
-            <div class="swiper-container">
-
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background: url(./img/slider/slider-1.png) no-repeat;">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-10 col-lg-offset-1">
-                                    <h2 class="title-slider-h2">Широкий выбор <br> напольных покрытий</h2>
-                                    <div class="desc-slider-sm mt-20">
-                                        <p>
-                                            Создайте уникальный, неповторимый интерьер своего <br>
-                                            дома—риобретайте качественне напольные покрытия.
-                                        </p>
-                                    </div>
-                                    <div class="mt-70">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <a href="#!" class="button button-slider button-slider-lg djc-c">
-                                                    <span class="button-text">В каталог</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-button-prev">
-                    <img src="./img/slider/arrow_prew.svg" alt="">
-                </div>
-                <div class="swiper-button-next">
-                    <img src="./img/slider/arrow_next.svg" alt="">
-                </div>
-
-            </div>
-        </section>
-
     <?php endif; ?>
+
 
     <?= $content; ?>
 

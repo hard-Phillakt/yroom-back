@@ -18,7 +18,7 @@ class YNewsSearch extends YNews
     {
         return [
             [['id', 'published', 'prioritet'], 'integer'],
-            [['title', 'description', 'meta_title', 'meta_description', 'img_prev', 'essence', 'date'], 'safe'],
+            [['title', 'description', 'meta_title', 'meta_description', 'img_prev', 'essence', 'date', 'slug'], 'safe'],
         ];
     }
 
@@ -69,7 +69,8 @@ class YNewsSearch extends YNews
             ->andFilterWhere(['like', 'meta_description', $this->meta_description])
             ->andFilterWhere(['like', 'img_prev', $this->img_prev])
             ->andFilterWhere(['like', 'essence', $this->essence])
-            ->andFilterWhere(['like', 'date', $this->date]);
+            ->andFilterWhere(['like', 'date', $this->date])
+            ->andFilterWhere(['like', 'slug', $this->date]);
 
         return $dataProvider;
     }
