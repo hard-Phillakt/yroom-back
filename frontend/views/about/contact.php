@@ -1,16 +1,23 @@
+
+<?php
+
+use yii\helpers\Url;
+
+?>
+
 <section class="additional-menu pt-50 pb-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <ul class="hit-sales__tabs djc-s">
                     <li>
-                        <a href="/about/contact" class="mr-60">Контакты</a>
+                        <a href="<?= Url::home(true); ?>/about/contact" class="mr-60">Контакты</a>
                     </li>
                     <li>
-                        <a href="/about/vacancy" class="mr-60">Вакансии</a>
+                        <a href="<?= Url::home(true); ?>/about/vacancy" class="mr-60">Вакансии</a>
                     </li>
                     <li>
-                        <a href="/about/cooperation" class="mr-60">Сотрудничество</a>
+                        <a href="<?= Url::home(true); ?>/about/cooperation" class="mr-60">Сотрудничество</a>
                     </li>
                 </ul>
             </div>

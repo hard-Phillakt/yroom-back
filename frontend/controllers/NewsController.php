@@ -2,8 +2,11 @@
 
 namespace frontend\controllers;
 
-
+use Yii;
 use yii\web\Controller;
+use backend\models\YNews;
+
+
 
 class NewsController extends Controller
 {
@@ -11,11 +14,21 @@ class NewsController extends Controller
 
     public function actionIndex(){
 
-        return $this->render('index');
+        $queryNews = new YNews();
+
+        $news = $queryNews::find()->where(['published' => 1])->asArray()->orderBy('	prioritet ASC')->all();
+
+        return $this->render('index', compact('news'));
     }
 
     public function actionArticle(){
 
-        return $this->render('article');
+        $paramSlug = Yii::$app->request->get('slug');
+
+        $queryNews = new YNews();
+
+        $news = $queryNews::find()->where(['slug' => $paramSlug])->asArray()->orderBy('	prioritet ASC')->all();
+
+        return $this->render('article', $paramSlug ? compact('news') : false);
     }
 }

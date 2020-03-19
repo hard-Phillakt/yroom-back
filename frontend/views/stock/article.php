@@ -1,12 +1,17 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
 
 <section class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-30 mb-50">
-                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="../img/breadcrumbs/row.svg"
+                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg"
                                                                                alt="row"></span>
-                    <a href="#!" class="link-breadcrumb">Новости</a><span><img src="../img/breadcrumbs/row.svg"
+                    <a href="#!" class="link-breadcrumb">Новости</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg"
                                                                                alt="row"></span>
                     <span class="link-breadcrumb-this">Описание замков ламината</span>
                 </div>
@@ -22,7 +27,7 @@
 
                 <div class="col-lg-12">
                     <div class="article-header"
-                         style="background: url(../img/public/news/news-1.png) no-repeat;"></div>
+                         style="background: url(<?= Url::home(true); ?>/img/public/news/news-1.png) no-repeat;"></div>
                 </div>
 
                 <div class="col-lg-8 col-lg-offset-2">

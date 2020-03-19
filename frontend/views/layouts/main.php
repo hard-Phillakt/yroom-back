@@ -5,7 +5,6 @@ use frontend\assets\AppAsset;
 use common\widgets\menuMobile\MenuMobile;
 use yii\helpers\Url;
 
-
 AppAsset::register($this);
 
 ?>
@@ -38,29 +37,29 @@ AppAsset::register($this);
                 <div class="row dai-c">
                     <div class="col-lg-2">
                         <a href="/" class="logo-header">
-                            <img src="../img/header/logo.svg" alt="logo">
+                            <img src="<?= Url::home(true); ?>/img/header/logo.svg" alt="logo">
                         </a>
                     </div>
                     <div class="col-lg-9">
                         <div class="menu">
                             <ul>
                                 <li>
-                                    <a href="/" class="link link-menu">Главная</a>
+                                    <a href="<?= Url::home(true); ?>/" class="link link-menu">Главная</a>
                                 </li>
                                 <li>
-                                    <a href="/product" class="link link-menu">Каталог</a>
+                                    <a href="<?= Url::home(true); ?>/product" class="link link-menu">Каталог</a>
                                 </li>
                                 <li>
-                                    <a href="/about/contact" class="link link-menu">О компании</a>
+                                    <a href="<?= Url::home(true); ?>/about/contact" class="link link-menu">О компании</a>
                                 </li>
                                 <li>
-                                    <a href="/pay-and-deliv/rise" class="link link-menu">Оплата и доставка</a>
+                                    <a href="<?= Url::home(true); ?>/pay-and-deliv/rise" class="link link-menu">Оплата и доставка</a>
                                 </li>
                                 <li>
-                                    <a href="/news" class="link link-menu">Новости и статьи</a>
+                                    <a href="<?= Url::home(true); ?>/news" class="link link-menu">Новости и статьи</a>
                                 </li>
                                 <li>
-                                    <a href="/stock" class="link link-menu">Акции</a>
+                                    <a href="<?= Url::home(true); ?>/stock" class="link link-menu">Акции</a>
                                 </li>
                             </ul>
                         </div>
@@ -69,12 +68,12 @@ AppAsset::register($this);
                         <div class="dai-c djc-end">
                             <div class="search">
                                 <a href="#!">
-                                    <img src="../img/header/ico_search.svg" alt="ico_search">
+                                    <img src="<?= Url::home(true); ?>/img/header/ico_search.svg" alt="ico_search">
                                 </a>
                             </div>
                             <a class="menu-cart" href="#!">
                                 <span>
-                                    <img src="../img/header/icon_cart.svg" alt="icon_cart">
+                                    <img src="<?= Url::home(true); ?>/img/header/icon_cart.svg" alt="icon_cart">
                                 </span>
                                 <span class="cart-product-count">
                                     2
@@ -89,10 +88,9 @@ AppAsset::register($this);
 
     <?php if (Yii::$app->request->resolve()[0] !== 'index/index'): ?>
 
-        <section class="layers-banner" style="background: url(../img/slider/slider-1.png);"></section>
+        <section class="layers-banner" style="background: url(<?= Url::home(true); ?>/img/slider/slider-1.png);"></section>
 
     <?php endif; ?>
-
 
     <?= $content; ?>
 
@@ -101,15 +99,17 @@ AppAsset::register($this);
     <footer class="footer mt-90 pb-30 pt-60">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-3">
                     <ul class="footer__menu">
-                        <li><a href="#!" class="mb-10">Главная</a></li>
-                        <li><a href="#!" class="mb-10">О компании</a></li>
-                        <li><a href="#!" class="mb-10">Оплата и доставка</a></li>
-                        <li><a href="#!" class="mb-10">Новости и статьи</a></li>
-                        <li><a href="#!" class="mb-10">Акции</a></li>
+                        <li><a href="<?= Url::home(true); ?>/" class="mb-10">Главная</a></li>
+                        <li><a href="<?= Url::home(true); ?>/about/contact" class="mb-10">О компании</a></li>
+                        <li><a href="<?= Url::home(true); ?>/pay-and-deliv/rise" class="mb-10">Оплата и доставка</a></li>
+                        <li><a href="<?= Url::home(true); ?>/news" class="mb-10">Новости и статьи</a></li>
+                        <li><a href="<?= Url::home(true); ?>/stock" class="mb-10">Акции</a></li>
                     </ul>
                 </div>
+
                 <div class="col-lg-3">
                     <ul class="footer__menu">
                         <li><a href="#!" class="mb-10">Линолеум</a></li>
@@ -119,6 +119,7 @@ AppAsset::register($this);
                         <li><a href="#!" class="mb-10">Аксессуары</a></li>
                     </ul>
                 </div>
+
                 <div class="col-lg-3">
                     <ul class="footer__menu">
                         <li class="mb-30">Режим работы:</li>
@@ -132,6 +133,7 @@ AppAsset::register($this);
                         </li>
                     </ul>
                 </div>
+
                 <div class="col-lg-3">
 
                     <ul class="footer__menu">
@@ -146,6 +148,7 @@ AppAsset::register($this);
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </footer>

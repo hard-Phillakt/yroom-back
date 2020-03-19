@@ -1,4 +1,8 @@
+<?php
 
+use yii\helpers\Url;
+
+?>
 <section class="slider">
     <div class="swiper-container">
 
@@ -36,21 +40,15 @@
         </div>
 
         <div class="swiper-button-prev">
-            <img src="../img/slider/arrow_prew.svg" alt="arrow_prew">
+            <img src="<?= Url::home(true); ?>/img/slider/arrow_prew.svg" alt="arrow_prew">
         </div>
 
         <div class="swiper-button-next">
-            <img src="../img/slider/arrow_next.svg" alt="arrow_next">
+            <img src="<?= Url::home(true); ?>/img/slider/arrow_next.svg" alt="arrow_next">
         </div>
 
     </div>
 </section>
-
-<?php
-
-debug($category);
-
-?>
 
 <section class="floor-coverings mt-60">
     <div class="container">
@@ -61,14 +59,17 @@ debug($category);
                 </div>
             </div>
 
-            <?php foreach ($category as $item):?>
+            <?php
+            $catCounter = 0;
 
-                <div class="col-lg-4 floor-coverings__col_8">
+            foreach ($category as $item): ?>
+
+                <div class="<?= $catCounter == 0 ? 'col-lg-8' : 'col-lg-4'; ?>">
                     <div class="floor-coverings__box mb-30">
-                        <a href="#!" class="floor-coverings__box_header"
+                        <a href="<?= $item['link']; ?>" class="floor-coverings__box_header"
                            style="background: url(<?= $item['img_prev']; ?>)"></a>
                         <div class="floor-coverings__box_footer djc-sb mt-30">
-                            <a href="#!" class="link link-floor-coverings">
+                            <a href="<?= $item['link']; ?>" class="link link-floor-coverings">
                                 <?= $item['title']; ?>
                             </a>
                             <a href="<?= $item['link']; ?>" class="link link-floor-coverings_arrow"><img
@@ -77,24 +78,9 @@ debug($category);
                     </div>
                 </div>
 
-            <?php debug($item); ?>
+                <?php $catCounter++; ?>
 
             <?php endforeach; ?>
-
-
-
-
-<!--            <div class="col-lg-4">-->
-<!--                <div class="floor-coverings__box mb-30">-->
-<!--                    <a href="#!" class="floor-coverings__box_header"-->
-<!--                       style="background: url(../img/floor-coverings/bg_pic-2.png)"></a>-->
-<!--                    <div class="floor-coverings__box_footer djc-sb mt-30">-->
-<!--                        <a href="#!" class="link link-floor-coverings">Линолеум</a>-->
-<!--                        <a href="#!" class="link link-floor-coverings_arrow"><img-->
-<!--                                    src="../img/floor-coverings/ico_arrow.svg" alt="ico_arrow"></a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
 
         </div>
     </div>
@@ -113,22 +99,28 @@ debug($category);
                 <!-- hit-sales tabs -->
                 <div class="mb-60">
                     <ul class="hit-sales__tabs djc-end" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#laminat" class="ml-30" aria-controls="home" role="tab"
-                               data-toggle="tab">Ламинат</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#linoleum" class="ml-30" aria-controls="profile" role="tab" data-toggle="tab">Линолеум</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#carpets" class="ml-30" aria-controls="messages" role="tab"
-                               data-toggle="tab">Ковры</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#carpet-rugs" class="ml-30" aria-controls="settings" role="tab"
-                               data-toggle="tab">Ковровые
-                                дорожки</a>
-                        </li>
+
+                        <?php
+
+                        $catCounterTab = 0;
+                        $arrCat = [];
+
+                        foreach ($category as $item):
+                            $arrCat[] = $item['slug']; ?>
+
+                            <?php if($catCounterTab <= 3): ?>
+
+                                <li role="presentation" class="<?= $catCounterTab == 0 ? 'active': false; ?>">
+                                    <a href="#<?= $item['slug']; ?>" class="ml-30" aria-controls="<?= $item['slug']; ?>" role="tab"
+                                       data-toggle="tab"><?= $item['title']; ?></a>
+                                </li>
+
+                            <?php endif; ?>
+
+                            <?php $catCounterTab++; ?>
+
+                        <?php endforeach; ?>
+
                     </ul>
                 </div>
             </div>
@@ -143,7 +135,8 @@ debug($category);
 
                         <!-- hit-sales panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="laminat">
+
+                            <div role="tabpanel" class="tab-pane active" id="<?= $arrCat[0]; ?>">
                                 <div class="row">
                                     <?php foreach ($product as $item): ?>
 
@@ -157,7 +150,9 @@ debug($category);
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>%</div>
+                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                        %
+                                                                    </div>
                                                                 <?php endif; ?>
                                                             </div>
                                                         </div>
@@ -193,7 +188,8 @@ debug($category);
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span> р/кв.м
+                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            р/кв.м
                                                                         </div>
 
                                                                     </div>
@@ -215,7 +211,8 @@ debug($category);
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="linoleum">
+
+                            <div role="tabpanel" class="tab-pane" id="<?= $arrCat[1]; ?>">
                                 <div class="row">
                                     <?php foreach ($product as $item): ?>
 
@@ -229,7 +226,9 @@ debug($category);
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>%</div>
+                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                        %
+                                                                    </div>
                                                                 <?php endif; ?>
                                                             </div>
                                                         </div>
@@ -265,7 +264,8 @@ debug($category);
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span> р/кв.м
+                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            р/кв.м
                                                                         </div>
 
                                                                     </div>
@@ -287,7 +287,8 @@ debug($category);
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="carpets">
+
+                            <div role="tabpanel" class="tab-pane" id="<?= $arrCat[2]; ?>">
                                 <div class="row">
                                     <?php foreach ($product as $item): ?>
 
@@ -301,7 +302,9 @@ debug($category);
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>%</div>
+                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                        %
+                                                                    </div>
                                                                 <?php endif; ?>
                                                             </div>
                                                         </div>
@@ -337,7 +340,8 @@ debug($category);
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span> р/кв.м
+                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            р/кв.м
                                                                         </div>
 
                                                                     </div>
@@ -359,7 +363,8 @@ debug($category);
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="carpet-rugs">
+
+                            <div role="tabpanel" class="tab-pane" id="<?= $arrCat[3]; ?>">
                                 <div class="row">
                                     <?php foreach ($product as $item): ?>
 
@@ -373,7 +378,9 @@ debug($category);
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>%</div>
+                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                        %
+                                                                    </div>
                                                                 <?php endif; ?>
                                                             </div>
                                                         </div>
@@ -409,7 +416,8 @@ debug($category);
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span> р/кв.м
+                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            р/кв.м
                                                                         </div>
 
                                                                     </div>
@@ -431,8 +439,8 @@ debug($category);
                                     <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

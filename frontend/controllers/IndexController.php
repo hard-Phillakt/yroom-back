@@ -19,15 +19,15 @@ class IndexController extends Controller
 
 //      Slider
         $querySlider = new YSlider();
-        $slider = $querySlider::find()->where('published = 1')->asArray()->all();
+        $slider = $querySlider::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
-//      Product
+//      Category
         $queryCategory = new YCategory();
-        $category = $queryCategory::find()->where(['published' => 1])->asArray()->all();
+        $category = $queryCategory::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
 //      Product
         $queryProduct = new YProduct();
-        $product = $queryProduct::find()->where(['published' => 1])->asArray()->all();
+        $product = $queryProduct::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
         return $this->render('index', compact(['slider', 'category', 'product']));
     }

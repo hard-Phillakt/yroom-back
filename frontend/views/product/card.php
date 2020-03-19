@@ -1,3 +1,9 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
+
 <section class="additional-menu pt-50 pb-50">
     <div class="container">
         <div class="row">
@@ -32,7 +38,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-30 mb-50">
-                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="../img/breadcrumbs/row.svg" alt="row"></span>
+                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg" alt="row"></span>
                     <span class="link-breadcrumb-this">Каталог</span>
                 </div>
             </div>
@@ -47,7 +53,7 @@
                 <div class="card">
                     <div class="card-wrapper mb-30">
                         <div class="card__header">
-                            <div class="card__img card__img_h500" style="background: url(../img/public/news/news-1.png)">
+                            <div class="card__img card__img_h500" style="background: url(<?= Url::home(true); ?>/img/public/news/news-1.png)">
                                 <div class="card__discount">%</div>
                             </div>
                         </div>

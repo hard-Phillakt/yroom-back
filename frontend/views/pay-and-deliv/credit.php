@@ -1,3 +1,8 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
 
 <section class="additional-menu pt-50 pb-50">
     <div class="container">
@@ -5,13 +10,13 @@
             <div class="col-lg-12">
                 <ul class="hit-sales__tabs djc-s">
                     <li>
-                        <a href="/pay-and-deliv/rise" class="mr-60">Подъем на этаж</a>
+                        <a href="<?= Url::home(true); ?>/pay-and-deliv/rise" class="mr-60">Подъем на этаж</a>
                     </li>
                     <li>
-                        <a href="/pay-and-deliv/return" class="mr-60">Обмен и возврат</a>
+                        <a href="<?= Url::home(true); ?>/pay-and-deliv/return" class="mr-60">Обмен и возврат</a>
                     </li>
                     <li>
-                        <a href="/pay-and-deliv/credit" class="mr-60">Покупка в кредит</a>
+                        <a href="<?= Url::home(true); ?>/pay-and-deliv/credit" class="mr-60">Покупка в кредит</a>
                     </li>
                 </ul>
             </div>
@@ -77,17 +82,17 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="credit-banks__img">
-                    <img src="../img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
+                    <img src="<?= Url::home(true); ?>/img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="credit-banks__img">
-                    <img src="../img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
+                    <img src="<?= Url::home(true); ?>/img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="credit-banks__img">
-                    <img src="../img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
+                    <img src="<?= Url::home(true); ?>/img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -105,17 +110,17 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="credit-banks__img">
-                    <img src="../img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
+                    <img src="<?= Url::home(true); ?>/img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="credit-banks__img">
-                    <img src="../img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
+                    <img src="<?= Url::home(true); ?>/img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="credit-banks__img">
-                    <img src="../img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
+                    <img src="<?= Url::home(true); ?>/img/credit/bank-otkritie.png" alt="bank-otkritie" class="img-responsive">
                 </div>
             </div>
         </div>

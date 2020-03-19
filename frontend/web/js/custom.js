@@ -14,9 +14,9 @@ ActiveItem.prototype = {
     constructor: function (el) {
         el.forEach(function (item, i) {
             // main menu
-            item.pathname == window.location.pathname && item.className == 'link link-menu' ? item.classList.add('link-menu-active') : false;
+            item.pathname === window.location.pathname && item.className === 'link link-menu' ? item.classList.add('link-menu-active') : false;
             // additional-menu
-            item.pathname == window.location.pathname && item.className == 'mr-60' ? item.parentNode.classList.add('active'): false;
+            item.pathname === window.location.pathname && item.className === 'mr-60' ? item.parentNode.classList.add('active'): false;
         });
     }
 };
@@ -25,3 +25,9 @@ ActiveItem.prototype = {
 var st = new ActiveItem(saleTabs);
 var mm = new ActiveItem(mainMenu);
 
+
+
+$(document).ready(function () {
+
+
+});

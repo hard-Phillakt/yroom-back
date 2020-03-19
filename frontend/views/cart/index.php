@@ -1,10 +1,15 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
 
 <section class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-30 mb-50">
-                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="./img/breadcrumbs/row.svg"
+                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="<?= Url::home(true); ?>//img/breadcrumbs/row.svg"
                                                                                alt="row"></span>
                     <span class="link-breadcrumb-this">Корзина</span>
                 </div>
@@ -27,7 +32,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(./img/product/product_1.png)">
+                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
                                         <div class="card__discount">%</div>
                                     </div>
                                 </div>
@@ -112,7 +117,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(./img/product/product_1.png)">
+                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
                                         <div class="card__discount">%</div>
                                     </div>
                                 </div>
@@ -197,7 +202,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(./img/product/product_1.png)">
+                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
                                         <div class="card__discount">%</div>
                                     </div>
                                 </div>
@@ -282,7 +287,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(./img/product/product_1.png)">
+                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
                                         <div class="card__discount">%</div>
                                     </div>
                                 </div>

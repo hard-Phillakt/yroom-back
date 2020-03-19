@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'is_hit',
             //'discount_id',
             //'published',
-            //'prioritet',
+            'prioritet',
             //'img_prev',
 
             ['class' => 'yii\grid\ActionColumn'],

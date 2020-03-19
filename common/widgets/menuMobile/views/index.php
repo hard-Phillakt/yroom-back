@@ -1,10 +1,16 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
+
 <!-- Mobile menu -->
 
 <div class="header-mobile-menu__hamburger">
     <button class="hamburger hamburger--spring" type="button">
-              <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-              </span>
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
     </button>
 </div>
 
@@ -13,7 +19,7 @@
     <div class="header-mobile-menu__header">
         <div class="logo pl-30 mb-30">
             <a href="#!">
-                <img src="../img/header/logo.svg" alt="logo">
+                <img src="<?= Url::home(true); ?>/img/header/logo.svg" alt="logo">
             </a>
         </div>
     </div>
@@ -23,7 +29,7 @@
             <div class="dai-c djc-end">
                 <a class="menu-cart" href="#!">
                     <span>
-                        <img src="../img/header/icon_cart.svg" alt="icon_cart">
+                        <img src="<?= Url::home(true); ?>/img/header/icon_cart.svg" alt="icon_cart">
                     </span>
                     <span class="cart-product-count">
                         2

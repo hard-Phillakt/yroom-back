@@ -42,7 +42,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/' => 'index/index'
+                '/' => 'index/index',
+                '/article/<slug:\S+>' => 'news/article'
             ],
         ],
     ],

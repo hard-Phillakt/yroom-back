@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'essence',
             //'date',
             //'published',
-            //'prioritet',
+            'prioritet',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

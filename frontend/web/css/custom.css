@@ -62,3 +62,14 @@
         flex-direction: column-reverse;
     }
 }
+
+/* button */
+
+.button:hover {
+    text-decoration: none;
+}
+
+.button-buy:focus, .button-buy:hover {
+    text-decoration: none;
+    color: #fff;
+}

@@ -1,3 +1,8 @@
+<?php
+
+use yii\helpers\Url;
+
+?>
 
 <section class="additional-menu pt-50 pb-50">
     <div class="container">
@@ -5,13 +10,13 @@
             <div class="col-lg-12">
                 <ul class="hit-sales__tabs djc-s">
                     <li>
-                        <a href="/pay-and-deliv/rise" class="mr-60">Подъем на этаж</a>
+                        <a href="<?= Url::home(true); ?>/pay-and-deliv/rise" class="mr-60">Подъем на этаж</a>
                     </li>
                     <li>
-                        <a href="/pay-and-deliv/return" class="mr-60">Обмен и возврат</a>
+                        <a href="<?= Url::home(true); ?>/pay-and-deliv/return" class="mr-60">Обмен и возврат</a>
                     </li>
                     <li>
-                        <a href="/pay-and-deliv/credit" class="mr-60">Покупка в кредит</a>
+                        <a href="<?= Url::home(true); ?>/pay-and-deliv/credit" class="mr-60">Покупка в кредит</a>
                     </li>
                 </ul>
             </div>
