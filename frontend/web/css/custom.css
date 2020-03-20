@@ -73,3 +73,31 @@
     text-decoration: none;
     color: #fff;
 }
+
+
+/* Link */
+
+.title__stock {
+    display: inline-flex;
+    position: relative;
+}
+
+.title__stock:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.title__stock::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0%;
+    height: 7px;
+    background: rgba(243, 213, 23, 0.7);
+    transition: all .3s;
+}
+
+.title__stock:hover::before {
+    width: 90%;
+}

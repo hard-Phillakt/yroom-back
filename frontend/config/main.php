@@ -36,14 +36,15 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'error/error',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '/' => 'index/index',
-                '/article/<slug:\S+>' => 'news/article'
+                'news/article/<slug:\S+>' => 'news/article',
+                'stock/article/<slug:\S+>' => 'stock/article',
             ],
         ],
     ],

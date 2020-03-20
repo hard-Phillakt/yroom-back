@@ -6,7 +6,7 @@ use \yii\helpers\Url;
 
 <section class="news mt-40">
     <div class="container">
-        <div class="row">
+        <div class="row" id="news-items">
 
             <!-- DropDown-->
 
@@ -27,9 +27,9 @@ use \yii\helpers\Url;
                                     </div>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                        <a href="/news?news=true" class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Новости</a>
+                                        <a href="#!" class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Новости</a>
 
-                                        <a href="/news?article=true" class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Статьи</a>
+                                        <a href="#!" class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Статьи</a>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ use \yii\helpers\Url;
                     <div class="card">
                         <div class="card-wrapper mb-70">
                             <div class="card__header_news djc-c">
-                                <a href="/article/<?= $item['slug'] ?>" class="card__img_h200"
+                                <a href="/news/article/<?= $item['slug'] ?>" class="card__img_h200"
                                    style="background: url(<?= Url::home(true); ?>/<?= $item['img_prev'] ?>)">
                                 </a>
                             </div>
@@ -70,7 +70,7 @@ use \yii\helpers\Url;
                                     </div>
 
                                     <div class="col-lg-6">
-                                        <a href="/article/<?= $item['slug'] ?>"
+                                        <a href="/news/article/<?= $item['slug'] ?>"
                                            class="button button-buy djc-c pl-50 pr-50 pt-10 pb-10 dai-c">
                                             Подробнее
                                         </a>

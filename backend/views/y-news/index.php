@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'meta_title',
             'meta_description',
             //'img_prev',
-            //'essence',
+            'essence',
             //'date',
             //'published',
             'prioritet',
