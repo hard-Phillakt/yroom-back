@@ -23,7 +23,10 @@ class IndexController extends Controller
 
 //      Category
         $queryCategory = new YCategory();
-        $category = $queryCategory::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+        $category = $queryCategory::find()->where([
+            'published' => 1,
+            'slug' => ['linoleum', 'laminat', 'kovry', 'kovrovye-dorozki', 'plintusy-porogi-i-aksessuary'],
+        ])->asArray()->orderBy('prioritet ASC')->all();
 
 //      Product
         $queryProduct = new YProduct();

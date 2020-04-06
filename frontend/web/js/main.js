@@ -10836,7 +10836,7 @@ $(document).ready(function () {
                     switch ($(this).html()) {
                         case increment:
                             cardAmount++;
-                            $('.card-amount').eq(index).val(cardAmount) ;
+                            $('.card-amount').eq(index).val(cardAmount);
                             break;
 
                         case decrement:
@@ -10855,6 +10855,7 @@ $(document).ready(function () {
                 }
 
             })
+
         });
     }
 
@@ -10866,7 +10867,11 @@ $(document).ready(function () {
     $('.card-amount').each(function () {
         $(this).on('blur', function () {
             $(this).val() < 1 ? $(this).val(1) : true;
-        })
+        });
+
+		$(this).on('change', function () {
+			$(this).val() < 1 ? $(this).val(1) : true;
+		})
     });
 
 //  Cart

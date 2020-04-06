@@ -5,8 +5,6 @@ use yii\helpers\Url;
 //debug($news);
 
 ?>
-
-
     <!-- DropDown-->
 
     <div class="col-lg-4">
@@ -38,7 +36,6 @@ use yii\helpers\Url;
     </div>
 
     <!-- DropDown end -->
-
 
 <?php foreach ($news as $item): ?>
 

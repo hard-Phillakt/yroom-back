@@ -27,9 +27,9 @@ use \yii\helpers\Url;
                                     </div>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                        <a href="#!" class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Новости</a>
+                                        <span class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Новости</span>
 
-                                        <a href="#!" class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Статьи</a>
+                                        <span class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Статьи</span>
                                     </div>
                                 </div>
                             </div>
@@ -40,11 +40,11 @@ use \yii\helpers\Url;
 
             <!-- DropDown end -->
 
+            <?php if(!empty($news)): ?>
 
             <?php foreach ($news as $item): ?>
 
                 <!-- item -->
-
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="card">
                         <div class="card-wrapper mb-70">
@@ -82,10 +82,26 @@ use \yii\helpers\Url;
                         </div>
                     </div>
                 </div>
-
                 <!-- item end -->
 
             <?php endforeach; ?>
+
+            <?php else: ?>
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12  pt-80 pb-80">
+
+                    <div class="djc-s">
+                        <h3 class="title title-h3">Информация для данной категории вскоре будет добавлена на сайт.</h3>
+                    </div>
+
+                    <div class="mt-30">
+                        <p class="desc desc__md opac__07 desc__xs_bold"> О наличии или заказе товаров вы можете уточнить по телефону:
+                            <a href="tel:+74722347005">+7 (4722) 34-70-05</a>
+                        </p>
+                    </div>
+                </div>
+
+            <?php endif; ?>
 
         </div>
     </div>

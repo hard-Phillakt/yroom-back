@@ -76,7 +76,7 @@ AppAsset::register($this);
                                     <img src="<?= Url::home(true); ?>/img/header/icon_cart.svg" alt="icon_cart">
                                 </span>
                                 <span class="cart-product-count">
-                                    2
+                                    <?= $_SESSION['cart.qty']; ?>
                                 </span>
                             </a>
                         </div>

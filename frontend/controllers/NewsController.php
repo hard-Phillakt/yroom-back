@@ -7,6 +7,8 @@ use backend\models\YNews;
 use yii\web\Controller;
 use yii\web\HttpException;
 
+use common\widgets\menuMobile\MenuMobile;
+
 
 class NewsController extends Controller
 {
@@ -16,7 +18,7 @@ class NewsController extends Controller
     {
         $queryNews = new YNews();
 
-        $news = $queryNews::find()->where(['published' => 1])->asArray()->orderBy('	prioritet ASC')->all();
+        $news = $queryNews::find()->where(['essence' => '1','published' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
         return $this->render('index', compact('news'));
     }
@@ -27,8 +29,9 @@ class NewsController extends Controller
 
         $queryNews = new YNews();
 
-        $news = $queryNews::find()->where(['slug' => $paramSlug, 'published' => 1])->asArray()->orderBy('	prioritet ASC')->all();
+        $news = $queryNews::find()->where(['slug' => $paramSlug, 'published' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
+//      Ошибка на пустоту
         if (empty($news)) {
             throw new HttpException('404');
         }
@@ -45,7 +48,13 @@ class NewsController extends Controller
 
             $queryNews = new YNews();
 
-            $news = $queryNews::find()->where(['essence' => $paramEssence])->asArray()->orderBy('	prioritet ASC')->all();
+            $news = $queryNews::find()->where(['essence' => $paramEssence, 'published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+
+//          render на пустоту
+            if (empty($news)) {
+
+                return $this->render('ajax-empty');
+            }
 
             return $this->render('ajax', compact('news'));
         }

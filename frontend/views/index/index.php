@@ -64,21 +64,25 @@ use yii\helpers\Url;
 
             foreach ($category as $item): ?>
 
-                <div class="<?= $catCounter == 0 ? 'col-lg-8' : 'col-lg-4'; ?>">
-                    <div class="floor-coverings__box mb-30">
-                        <a href="<?= $item['link']; ?>" class="floor-coverings__box_header"
-                           style="background: url(<?= $item['img_prev']; ?>)"></a>
-                        <div class="floor-coverings__box_footer djc-sb mt-30">
-                            <a href="<?= $item['link']; ?>" class="link link-floor-coverings">
-                                <?= $item['title']; ?>
-                            </a>
-                            <a href="<?= $item['link']; ?>" class="link link-floor-coverings_arrow"><img
+                <?php if ($item['slug'] !== 'vse'): ?>
+
+                    <div class="<?= $catCounter == 0 ? 'col-lg-8' : 'col-lg-4'; ?>">
+                        <div class="floor-coverings__box mb-30">
+                            <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>" class="floor-coverings__box_header"
+                               style="background: url(<?= $item['img_prev']; ?>)"></a>
+                            <div class="floor-coverings__box_footer djc-sb mt-30">
+                                <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>" class="link link-floor-coverings">
+                                    <?= $item['title']; ?>
+                                </a>
+                                <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>" class="link link-floor-coverings_arrow"><img
                                         src="../img/floor-coverings/ico_arrow.svg" alt="ico_arrow"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <?php $catCounter++; ?>
+                    <?php $catCounter++; ?>
+
+                <?php endif; ?>
 
             <?php endforeach; ?>
 
@@ -105,13 +109,13 @@ use yii\helpers\Url;
                         $catCounterTab = 0;
                         $arrCat = [];
 
-                        foreach ($category as $item):
-                            $arrCat[] = $item['slug']; ?>
+                        foreach ($category as $item): ?>
 
-                            <?php if($catCounterTab <= 3): ?>
+                            <?php if ($catCounterTab <= 3): $arrCat[] = $item['slug']; ?>
 
-                                <li role="presentation" class="<?= $catCounterTab == 0 ? 'active': false; ?>">
-                                    <a href="#<?= $item['slug']; ?>" class="ml-30" aria-controls="<?= $item['slug']; ?>" role="tab"
+                                <li role="presentation" class="<?= $catCounterTab == 0 ? 'active' : false; ?>">
+                                    <a href="#<?= $item['slug']; ?>" class="ml-30" aria-controls="<?= $item['slug']; ?>"
+                                       role="tab"
                                        data-toggle="tab"><?= $item['title']; ?></a>
                                 </li>
 
@@ -150,7 +154,8 @@ use yii\helpers\Url;
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                    <div
+                                                                        class="card__discount"><?= $item['discount_id']; ?>
                                                                         %
                                                                     </div>
                                                                 <?php endif; ?>
@@ -181,14 +186,14 @@ use yii\helpers\Url;
                                                                                     ?></span> р.кв/м
                                                                             <?php else: ?>
 
-                                                                                <div class="mt-20 pt-5"></div>
+                                                                                <div class="mt-20"></div>
 
                                                                             <?php endif; ?>
 
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            <span><?= round($item['price'] - $total); ?></span>
                                                                             р/кв.м
                                                                         </div>
 
@@ -196,7 +201,7 @@ use yii\helpers\Url;
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div
-                                                                            class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
+                                                                        class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
                                                                         В корзину
                                                                     </div>
                                                                 </div>
@@ -226,7 +231,8 @@ use yii\helpers\Url;
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                    <div
+                                                                        class="card__discount"><?= $item['discount_id']; ?>
                                                                         %
                                                                     </div>
                                                                 <?php endif; ?>
@@ -257,14 +263,14 @@ use yii\helpers\Url;
                                                                                     ?></span> р.кв/м
                                                                             <?php else: ?>
 
-                                                                                <div class="mt-20 pt-5"></div>
+                                                                                <div class="mt-20"></div>
 
                                                                             <?php endif; ?>
 
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            <span><?= round($item['price'] - $total); ?></span>
                                                                             р/кв.м
                                                                         </div>
 
@@ -272,7 +278,7 @@ use yii\helpers\Url;
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div
-                                                                            class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
+                                                                        class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
                                                                         В корзину
                                                                     </div>
                                                                 </div>
@@ -302,7 +308,8 @@ use yii\helpers\Url;
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                    <div
+                                                                        class="card__discount"><?= $item['discount_id']; ?>
                                                                         %
                                                                     </div>
                                                                 <?php endif; ?>
@@ -333,14 +340,14 @@ use yii\helpers\Url;
                                                                                     ?></span> р.кв/м
                                                                             <?php else: ?>
 
-                                                                                <div class="mt-20 pt-5"></div>
+                                                                                <div class="mt-20"></div>
 
                                                                             <?php endif; ?>
 
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            <span><?= round($item['price'] - $total); ?></span>
                                                                             р/кв.м
                                                                         </div>
 
@@ -348,7 +355,7 @@ use yii\helpers\Url;
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div
-                                                                            class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
+                                                                        class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
                                                                         В корзину
                                                                     </div>
                                                                 </div>
@@ -378,7 +385,8 @@ use yii\helpers\Url;
                                                             <div class="card__img"
                                                                  style="background: url(<?= $item['img_prev']; ?>)">
                                                                 <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div class="card__discount"><?= $item['discount_id']; ?>
+                                                                    <div
+                                                                        class="card__discount"><?= $item['discount_id']; ?>
                                                                         %
                                                                     </div>
                                                                 <?php endif; ?>
@@ -409,14 +417,14 @@ use yii\helpers\Url;
                                                                                     ?></span> р.кв/м
                                                                             <?php else: ?>
 
-                                                                                <div class="mt-20 pt-5"></div>
+                                                                                <div class="mt-20"></div>
 
                                                                             <?php endif; ?>
 
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= $item['price'] - $total; ?></span>
+                                                                            <span><?= round($item['price'] - $total); ?></span>
                                                                             р/кв.м
                                                                         </div>
 
@@ -424,7 +432,7 @@ use yii\helpers\Url;
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div
-                                                                            class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
+                                                                        class="button button-buy pl-50 pr-50 pt-10 pb-10 djc-c dai-c mt-30">
                                                                         В корзину
                                                                     </div>
                                                                 </div>

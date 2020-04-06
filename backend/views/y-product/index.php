@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\models\YCategory;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\modelsYProductSearch */
@@ -28,16 +29,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description',
+//            'description',
 //            'meta_title',
 //            'meta_description',
-            //'price',
-            'category_id',
+//            'price',
+//            'category_id',
+            [
+                'attribute' => 'category_id',
+                'format' => 'text',
+                'value' => function ($data) {
+
+                    $yCategory = new YCategory();
+
+                    $id = $data['category_id'];
+
+                    $queryCategory = $yCategory::find()->where('id = ' . $id)->asArray()->all();
+
+                    return $queryCategory[0]['title'];
+                },
+            ],
             //'slug',
             //'is_new',
             //'is_hit',
             //'discount_id',
-            //'published',
+            'published',
             'prioritet',
             //'img_prev',
 

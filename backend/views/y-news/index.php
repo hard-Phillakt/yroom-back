@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'img_prev',
             'essence',
             //'date',
-            //'published',
+            'published',
             'prioritet',
 
             ['class' => 'yii\grid\ActionColumn'],

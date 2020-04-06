@@ -2,6 +2,10 @@
 
 use yii\helpers\Url;
 
+//debug($product);
+
+$prod = $product[0];
+
 ?>
 
 <section class="additional-menu pt-50 pb-50">
@@ -9,24 +13,14 @@ use yii\helpers\Url;
         <div class="row">
             <div class="col-lg-12">
                 <ul class="hit-sales__tabs djc-s">
-                    <li>
-                        <a href="#!" class="mr-30">Линолеум</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="mr-30">Ламинат</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="mr-30">Ковры</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="mr-30">Ковровые дорожки</a>
-                    </li>
-                    <li class="active">
-                        <a href="#!" class="mr-30">Плинтусы пороги и аксессуары</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="mr-30">Все для уладки и ухода</a>
-                    </li>
+                    <?php foreach ($category as $item): ?>
+
+                        <li>
+                            <a href="/product/?q-cat=<?= $item['id']; ?>"
+                               class="category-item mr-30"><?= $item['title']; ?></a>
+                        </li>
+
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -38,7 +32,8 @@ use yii\helpers\Url;
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-30 mb-50">
-                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg" alt="row"></span>
+                    <a href="#!" class="link-breadcrumb">Главная</a><span><img
+                            src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg" alt="row"></span>
                     <span class="link-breadcrumb-this">Каталог</span>
                 </div>
             </div>
@@ -53,8 +48,13 @@ use yii\helpers\Url;
                 <div class="card">
                     <div class="card-wrapper mb-30">
                         <div class="card__header">
-                            <div class="card__img card__img_h500" style="background: url(<?= Url::home(true); ?>/img/public/news/news-1.png)">
-                                <div class="card__discount">%</div>
+                            <div class="card__img card__img_h500"
+                                 style="background: url(<?= Url::home(true); ?><?= $prod['img_prev']; ?>)">
+
+                                <?php if(!empty($prod['discount_id'])): ?>
+                                    <div class="card__discount"><?= $prod['discount_id']; ?>%</div>
+                                <?php endif; ?>
+
                             </div>
                         </div>
                     </div>
@@ -68,44 +68,33 @@ use yii\helpers\Url;
                             <div class="col-lg-6">
 
                                 <div class="mb-30 ml-30 ">
-                                    <h1 class="title title-h3 mb-30">Ламинат дуб интегра</h1>
+                                    <h1 class="title title-h3 mb-30">
+                                        <?= $prod['title']; ?>
+                                    </h1>
                                 </div>
 
                                 <div class="bg bg__yellow djc-sb dai-c pl-30 pr-30">
                                     <div class="card__new-price desc__xs_bold">
-                                        <span>198</span> р/кв.м
+                                        <span>
+                                            <?php
+                                            $price = $prod['price'];
+                                            $discoun = $prod['discount_id'];
+                                            $procent = ($price * $discoun) / 100;
+                                            $total = $price - $procent;
+                                            echo round($total) ;
+                                            ?>
+                                        </span> р/кв.м
                                     </div>
                                     <div class="card__old-price card__old-price_white desc__xs_bold fs fs__16">
-                                        <span>286</span> р.кв/м
+                                        <?php if(!empty($prod['discount_id'])): ?>
+                                        <span><?= $prod['price']; ?></span> р.кв/м
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
-                                <table class="table mt-60 table-striped">
-                                    <tr>
-                                        <td>Ширина рулона:</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Класс износостойкости:</td>
-                                        <td>Класс 23</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Материал основы:</td>
-                                        <td>Войлок</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Рельеф:</td>
-                                        <td>Гладкий</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Цветовая палитра:</td>
-                                        <td>Бежевый</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Цветовая палитра:</td>
-                                        <td>Бежевый</td>
-                                    </tr>
-                                </table>
+                                <div class="mt-60">
+                                    <?= $prod['description']; ?>
+                                </div>
 
                             </div>
 
@@ -124,39 +113,49 @@ use yii\helpers\Url;
                                                 </div>
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16">-</span>
+                                                        <span
+                                                            class="button button__decrement desc__xs_bold fs fs__16">-</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                    <div class="">
-                                                        <input type="text" name="amount" class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold" value="1">
+                                                    <div>
+                                                        <input
+                                                               type="text" name="amount"
+                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
+                                                               value="1">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16">+</span>
+                                                        <span
+                                                            class="button button__increment desc__xs_bold fs fs__16">+</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="mt-50">
-                                            <div class="button button-buy fs fs__16 pl-10 pr-10 pt-20 pb-20 djc-c dai-c">
+                                            <div
+                                                data-qty="1"
+                                                data-id="<?= $prod['id']; ?>"
+                                                class="button button-buy fs fs__16 pl-10 pr-10 pt-20 pb-20 djc-c dai-c">
                                                 В корзину
                                             </div>
                                         </div>
 
                                         <div class="mt-30">
-                                            <h2 class="desc desc__sm desc__xs_bold fs fs__20">Не знаете сколько нужно?</h2>
+                                            <h2 class="desc desc__sm desc__xs_bold fs fs__20">Не знаете сколько
+                                                нужно?</h2>
                                             <div class="desc desc__sm mt-20 fs fs__14">
-                                                Оставьте заявку  и наш менеджер
+                                                Оставьте заявку и наш менеджер
                                                 поможет вам с расчетом
                                             </div>
                                         </div>
 
                                         <div class="djc-c">
                                             <div class="mt-20 mr-10">
-                                                <input type="text" class="input pt-10 pb-10 pl-10 fs fs__12" placeholder="Ширина (м)">
+                                                <input type="text" class="input pt-10 pb-10 pl-10 fs fs__12"
+                                                       placeholder="Ширина (м)">
                                                 <div class="mt-30 ml-20">
                                                     <label class="djc-s unpacked circle-dots-wrapper">
                                                         <div class="circle-dots">
@@ -170,7 +169,8 @@ use yii\helpers\Url;
                                                 </div>
                                             </div>
                                             <div class="mt-20 ml-10">
-                                                <input type="text" class="input pt-10 pb-10 pl-10 fs fs__12" placeholder="Длина (м)">
+                                                <input type="text" class="input pt-10 pb-10 pl-10 fs fs__12"
+                                                       placeholder="Длина (м)">
                                                 <div class="mt-30 ml-20">
                                                     <label class="djc-s unpacked circle-dots-wrapper">
                                                         <div class="circle-dots">
@@ -186,7 +186,9 @@ use yii\helpers\Url;
                                         </div>
 
                                         <div class="mt-30">
-                                            <div class="button button__tran pt-5 pb-5 dai-c djc-c mt-20">Оставить заявку</div>
+                                            <div class="button button__tran pt-5 pb-5 dai-c djc-c mt-20">Оставить
+                                                заявку
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

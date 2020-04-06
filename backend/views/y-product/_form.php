@@ -3,6 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+use backend\models\YCategory;
+use yii\helpers\ArrayHelper;
+
+use mihaildev\ckeditor\CKEditor;
+
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\YProduct */
 /* @var $form yii\widgets\ActiveForm */
@@ -14,7 +20,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'description')->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ],
+    ]);
+    ?>
 
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
 
@@ -24,12 +38,17 @@ use yii\widgets\ActiveForm;
 
 <!--    --><?//= $form->field($model, 'category_id')->textInput() ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList([
-            '1' => 'Ламинат',
-            '2' => 'Линолеум',
-            '3' => 'Ковры',
-            '4' => 'Ковровые дорожки',
-    ]) ?>
+    <?php
+
+        $yCategory = new YCategory();
+
+        $queryCategory = $yCategory::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+
+        $arrData = ArrayHelper::map($queryCategory, 'id', 'title');
+
+    ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList($arrData) ?>
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 

@@ -53,8 +53,9 @@ class YProduct extends \yii\db\ActiveRecord
     {
         return [
             [['price', 'category_id', 'discount_id', 'published', 'prioritet'], 'integer'],
-            [['title', 'description', 'meta_title', 'meta_description', 'slug', 'img_prev'], 'string', 'max' => 255],
+            [['meta_title', 'meta_description', 'slug', 'img_prev'], 'string', 'max' => 255],
             [['is_new', 'is_hit'], 'string', 'max' => 10],
+            [['title', 'description',], 'safe']
         ];
     }
 

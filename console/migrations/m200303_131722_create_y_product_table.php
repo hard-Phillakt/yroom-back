@@ -14,8 +14,8 @@ class m200303_131722_create_y_product_table extends Migration
     {
         $this->createTable('{{%y_product}}', [
             'id' => $this->primaryKey(),
-            'title' => $this->string(255),
-            'description' => $this->string(255),
+            'title' => $this->text(),
+            'description' => $this->text(),
             'meta_title' => $this->string(255),
             'meta_description' => $this->string(255),
             'price' => $this->integer(10),
