@@ -15,7 +15,6 @@ class ProductController extends Controller
 
     public function actionIndex()
     {
-
         $requestProduct = Yii::$app->request->get('q-cat');
 
 //      Category
@@ -40,7 +39,6 @@ class ProductController extends Controller
 
     public function actionCard()
     {
-
         $requestProduct = Yii::$app->request->get('id');
 
 //      Category

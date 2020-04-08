@@ -27,6 +27,7 @@
     font-size: 12px;
 }
 
+
 .card__img {
     display: inline-flex;
 }
@@ -143,3 +144,24 @@
     align-items: center;
     justify-content: center;
 }
+
+
+/* Cart*/
+
+#card-box-items {
+    transition: all .5s ease-in-out;
+}
+
+#card-box-items .card {
+    position: relative;
+    height: 190px;
+    transition: all .5s ease-in-out;
+}
+
+@media (max-width: 768px) and (min-width: 360px) {
+    #card-box-items .card {
+        height: 350px;
+    }
+}
+
+/* Cart end*/

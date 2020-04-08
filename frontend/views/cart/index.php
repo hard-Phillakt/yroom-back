@@ -9,8 +9,9 @@ use yii\helpers\Url;
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-30 mb-50">
-                    <a href="#!" class="link-breadcrumb">Главная</a><span><img src="<?= Url::home(true); ?>//img/breadcrumbs/row.svg"
-                                                                               alt="row"></span>
+                    <a href="#!" class="link-breadcrumb">Главная</a><span><img
+                            src="<?= Url::home(true); ?>//img/breadcrumbs/row.svg"
+                            alt="row"></span>
                     <span class="link-breadcrumb-this">Корзина</span>
                 </div>
             </div>
@@ -22,86 +23,111 @@ use yii\helpers\Url;
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-
                 <div class="ml-30 mb-30">
                     <h1 class="title title-h1">Корзина</h1>
                 </div>
+            </div>
+            <div id="card-box-items" class="col-lg-8">
+                <?php if (!empty($cart['cart'])): ?>
 
-                <div class="card mt-30">
-                    <div class="card-wrapper mb-30">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
-                                        <div class="card__discount">%</div>
+                    <?php
+
+                    $i = 0;
+                    foreach ($cart['cart'] as $item): ?>
+
+                        <div class="card card-count-<?= $item['id']; ?> mt-30">
+                            <div class="card-wrapper mb-30">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
+                                            <div class="card__img"
+                                                 style="background: url(<?= Url::home(true); ?><?= $item['img']; ?>)">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="djc-sb">
-                                    <h2 class="desc desc__sm pl-20">Ламинат дуб джало светлый 6 мм, 31 класс</h2>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                        <div class="djc-sb">
+                                            <h2 class="desc desc__sm pl-20"><?= $item['title']; ?></h2>
 
-                                    <div>
-                                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-30">
-                                    <div class="row">
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card__footer_price pl-20">
-                                                <div class="djc-s mb-10">
-                                                    Цена:
-                                                </div>
-                                                <div class="card__old-price pb-5 djc-s">
-                                                    <span>286</span> р.кв/м
-                                                </div>
-                                                <div class="card__new-price djc-s dai-c">
-                                                    <span>198</span>&nbsp; р/кв.м
-                                                </div>
+                                            <div>
+                                        <span
+                                            data-id="<?= $item['id']; ?>"
+                                            class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <div class="mt-30">
                                             <div class="row">
 
-                                                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-                                                    <div class="djc-s mb-10">
-                                                        Количество:
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                    <div class="card__footer_price pl-20">
+                                                        <div class="djc-s mb-10">
+                                                            Цена:
+                                                        </div>
+                                                        <div class="card__old-price pb-5 djc-s">
+                                                            <!--                                                    <span>-->
+                                                            <? //= $item['price']; ?><!--</span> р.кв/м-->
+                                                        </div>
+                                                        <div class="card__new-price djc-s dai-c">
+                                                            <span><?= $item['price']; ?></span>&nbsp; р/кв.м
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                    <div class="row">
+
+                                                        <div
+                                                            class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
+                                                            <div class="djc-s mb-10">
+                                                                Количество:
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <div class="djc-c dai-c mt-10">
+                                                        <span
+                                                            data-id="<?= $item['id']; ?>"
+                                                            data-position="<?= $i; ?>"
+                                                            class="button button__decrement checkout-button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="mb-10">
+                                                                <input
+                                                                    data-id="<?= $item['id']; ?>"
+                                                                    data-position="<?= $i; ?>"
+                                                                    type="text"
+                                                                    name="floor-amount"
+                                                                    class="card-amount checkout-card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
+                                                                    value="<?= $item['qty']; ?>">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <div class="djc-c dai-c mt-10">
+                                                        <span
+                                                            data-id="<?= $item['id']; ?>"
+                                                            data-position="<?= $i; ?>"
+                                                            class="button button__increment checkout-button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <div class="mb-10">
-                                                        <input type="text" name="floor-amount"
-                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
-                                                               value="1">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                    <div class="card-total mb-30 ml-60">
+                                                        <div>
+                                                            Итого:
+                                                        </div>
+                                                        <div class="mt-10">
+                                                        <span
+                                                            class="card-total-sum-<?= $i; ?> desc__xs_bold fs fs__20 pr-5"><?= $item['price'] * $item['qty']; ?></span>
+                                                            руб
+                                                        </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card-total mb-30 ml-60">
-                                                <div>
-                                                    Итого:
-                                                </div>
-                                                <div class="mt-10">
-                                                    <span class="desc__xs_bold fs fs__20">0</span>&nbsp; руб
                                                 </div>
                                             </div>
                                         </div>
@@ -109,435 +135,32 @@ use yii\helpers\Url;
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <?php $i++; ?>
 
-                <div class="card mt-30">
-                    <div class="card-wrapper mb-30">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
-                                        <div class="card__discount">%</div>
-                                    </div>
-                                </div>
+                    <?php endforeach; ?>
+
+                <?php else: ?>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  pt-80 pb-80">
+
+                            <div class="djc-s">
+                                <h3 class="title desc__xs_bold fs fs__26">Ваша корзина пуста:</h3>
                             </div>
 
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="djc-sb">
-                                    <h2 class="desc desc__sm pl-20">Ламинат дуб джало светлый 6 мм, 31 класс</h2>
-
-                                    <div>
-                                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-30">
-                                    <div class="row">
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card__footer_price pl-20">
-                                                <div class="djc-s mb-10">
-                                                    Цена:
-                                                </div>
-                                                <div class="card__old-price pb-5 djc-s">
-                                                    <span>286</span> р.кв/м
-                                                </div>
-                                                <div class="card__new-price djc-s dai-c">
-                                                    <span>198</span>&nbsp; р/кв.м
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-                                                    <div class="djc-s mb-10">
-                                                        Количество:
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <div class="mb-10">
-                                                        <input type="text" name="amount"
-                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
-                                                               value="1">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card-total mb-30 ml-60">
-                                                <div>
-                                                    Итого:
-                                                </div>
-                                                <div class="mt-10">
-                                                    <span class="desc__xs_bold fs fs__20">0</span>&nbsp; руб
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="djc-s mt-30">
+                                <p class="desc desc__md opac__07 desc__xs_bold"> О наличии или заказе товаров вы можете уточнить по телефону:
+                                    <a href="tel:+74722347005">+7 (4722) 34-70-05</a>
+                                </p>
                             </div>
+
                         </div>
                     </div>
-                </div>
 
-                <div class="card mt-30">
-                    <div class="card-wrapper mb-30">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
-                                        <div class="card__discount">%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="djc-sb">
-                                    <h2 class="desc desc__sm pl-20">Ламинат дуб джало светлый 6 мм, 31 класс</h2>
-
-                                    <div>
-                                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-30">
-                                    <div class="row">
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card__footer_price pl-20">
-                                                <div class="djc-s mb-10">
-                                                    Цена:
-                                                </div>
-                                                <div class="card__old-price pb-5 djc-s">
-                                                    <span>286</span> р.кв/м
-                                                </div>
-                                                <div class="card__new-price djc-s dai-c">
-                                                    <span>198</span>&nbsp; р/кв.м
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-                                                    <div class="djc-s mb-10">
-                                                        Количество:
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <div class="mb-10">
-                                                        <input type="text" name="amount"
-                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
-                                                               value="1">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card-total mb-30 ml-60">
-                                                <div>
-                                                    Итого:
-                                                </div>
-                                                <div class="mt-10">
-                                                    <span class="desc__xs_bold fs fs__20">0</span>&nbsp; руб
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-30">
-                    <div class="card-wrapper mb-30">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(<?= Url::home(true); ?>//img/product/product_1.png)">
-                                        <div class="card__discount">%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="djc-sb">
-                                    <h2 class="desc desc__sm pl-20">Ламинат дуб джало светлый 6 мм, 31 класс</h2>
-
-                                    <div>
-                                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-30">
-                                    <div class="row">
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card__footer_price pl-20">
-                                                <div class="djc-s mb-10">
-                                                    Цена:
-                                                </div>
-                                                <div class="card__old-price pb-5 djc-s">
-                                                    <span>286</span> р.кв/м
-                                                </div>
-                                                <div class="card__new-price djc-s dai-c">
-                                                    <span>198</span>&nbsp; р/кв.м
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-                                                    <div class="djc-s mb-10">
-                                                        Количество:
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <div class="mb-10">
-                                                        <input type="text" name="amount"
-                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
-                                                               value="1">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card-total mb-30 ml-60">
-                                                <div>
-                                                    Итого:
-                                                </div>
-                                                <div class="mt-10">
-                                                    <span class="desc__xs_bold fs fs__20">0</span>&nbsp; руб
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-30">
-                    <div class="card-wrapper mb-30">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(./img/product/product_1.png)">
-                                        <div class="card__discount">%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="djc-sb">
-                                    <h2 class="desc desc__sm pl-20">Ламинат дуб джало светлый 6 мм, 31 класс</h2>
-
-                                    <div>
-                                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-30">
-                                    <div class="row">
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card__footer_price pl-20">
-                                                <div class="djc-s mb-10">
-                                                    Цена:
-                                                </div>
-                                                <div class="card__old-price pb-5 djc-s">
-                                                    <span>286</span> р.кв/м
-                                                </div>
-                                                <div class="card__new-price djc-s dai-c">
-                                                    <span>198</span>&nbsp; р/кв.м
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-                                                    <div class="djc-s mb-10">
-                                                        Количество:
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <div class="mb-10">
-                                                        <input type="text" name="amount"
-                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
-                                                               value="1">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card-total mb-30 ml-60">
-                                                <div>
-                                                    Итого:
-                                                </div>
-                                                <div class="mt-10">
-                                                    <span class="desc__xs_bold fs fs__20">0</span>&nbsp; руб
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-30">
-                    <div class="card-wrapper mb-30">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="card__header djc-c pt-30 pb-30 pl-10 pr-10">
-                                    <div class="card__img" style="background: url(./img/product/product_1.png)">
-                                        <div class="card__discount">%</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="djc-sb">
-                                    <h2 class="desc desc__sm pl-20">Ламинат дуб джало светлый 6 мм, 31 класс</h2>
-
-                                    <div>
-                                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 card-delete-item">×</span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-30">
-                                    <div class="row">
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card__footer_price pl-20">
-                                                <div class="djc-s mb-10">
-                                                    Цена:
-                                                </div>
-                                                <div class="card__old-price pb-5 djc-s">
-                                                    <span>286</span> р.кв/м
-                                                </div>
-                                                <div class="card__new-price djc-s dai-c">
-                                                    <span>198</span>&nbsp; р/кв.м
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="row">
-
-                                                <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-                                                    <div class="djc-s mb-10">
-                                                        Количество:
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">-</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <div class="mb-10">
-                                                        <input type="text" name="amount"
-                                                               class="card-amount djc-c dai-c input pt-10 pl-20 pb-10 fs fs__12 desc__xs_bold"
-                                                               value="1">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                    <div class="djc-c dai-c mt-10">
-                                                        <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-10 pr-10 pb-10 pl-10">+</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                            <div class="card-total mb-30 ml-60">
-                                                <div>
-                                                    Итого:
-                                                </div>
-                                                <div class="mt-10">
-                                                    <span class="desc__xs_bold fs fs__20">0</span>&nbsp; руб
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
 
+            <!-- Delivery column -->
             <div class="col-lg-4">
 
                 <div class="ml-30 mb-30">
@@ -547,11 +170,11 @@ use yii\helpers\Url;
                 <div class="pt-10 pr-30 pb-30 pl-30">
                     <nav>
                         <div class="djc-sb" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link nav-tab-active desc__sm desc__xs_bold fs fs__16"
+                            <a class="nav-item nav-link nav-tab-active desc__sm fs fs__16"
                                id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                                aria-controls="nav-home" aria-selected="true">Самовывоз</a>
 
-                            <a class="nav-item nav-link desc__sm desc__xs_bold fs fs__16"
+                            <a class="nav-item nav-link desc__sm fs fs__16"
                                id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
                                aria-controls="nav-profile" aria-selected="false">Доставка по адресу</a>
                         </div>
@@ -626,8 +249,10 @@ use yii\helpers\Url;
                                                 <div class="djc-sb mt-30">
                                                     <div class="title title-h3">Сумма</div>
 
-                                                    <div class="">
-                                                        <div class="title title-h3">19800</div>
+                                                    <div class="cart-total">
+                                                        <div class="title title-h3">
+                                                            <span class="cart-total-sum"><?= $cart['sum'] ?></span>
+                                                        </div>
                                                         <div class="ml-10">
                                                             рублей
                                                         </div>
@@ -638,7 +263,7 @@ use yii\helpers\Url;
                                             <div class="mt-40">
                                                 <button type="submit"
                                                         class="button button-buy color color__black bg bg__yellow fs fs__16 pl-10 pr-10 pt-10 pb-10 djc-c dai-c">
-                                                    В корзину
+                                                    Оформить заказ
                                                 </button>
                                             </div>
                                         </div>
@@ -719,7 +344,8 @@ use yii\helpers\Url;
                                                     <div class="row">
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                             <div class="djc-c dai-c mt-10">
-                                                                <span class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-5 pr-10 pb-10 pl-10">-</span>
+                                                                <span
+                                                                    class="button button__decrement desc__xs_bold fs fs__16 djc-c dai-c pt-5 pr-10 pb-10 pl-10">-</span>
                                                             </div>
                                                         </div>
 
@@ -733,7 +359,8 @@ use yii\helpers\Url;
 
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                             <div class="djc-c dai-c mt-10">
-                                                                <span class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-5 pr-10 pb-10 pl-10">+</span>
+                                                                <span
+                                                                    class="button button__increment desc__xs_bold fs fs__16 djc-c dai-c pt-5 pr-10 pb-10 pl-10">+</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -792,8 +419,10 @@ use yii\helpers\Url;
                                                 <div class="djc-sb mt-30">
                                                     <div class="title title-h3">Сумма</div>
 
-                                                    <div class="">
-                                                        <div class="title title-h3">19800</div>
+                                                    <div class="cart-total">
+                                                        <div class="title title-h3">
+                                                            <span class="cart-total-sum"><?= $cart['sum'] ?></span>
+                                                        </div>
                                                         <div class="ml-10">
                                                             рублей
                                                         </div>
@@ -804,7 +433,7 @@ use yii\helpers\Url;
                                             <div class="mt-40">
                                                 <button type="submit"
                                                         class="button button-buy color color__black bg bg__yellow fs fs__16 pl-10 pr-10 pt-10 pb-10 djc-c dai-c">
-                                                    В корзину
+                                                    Оформить заказ
                                                 </button>
                                             </div>
                                         </div>

@@ -10817,64 +10817,7 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip({
         html: true
     });
-
-
-    // amountCard increment && decrement
-
-    var increment = '+';
-    var decrement = '-';
-
-    function amountCard(btn) {
-
-        btn.each(function (index, item) {
-
-            $(this).on('click', function () {
-
-                var cardAmount = parseInt($('.card-amount').eq(index).val()) ? parseInt($('.card-amount').eq(index).val()) : alert('Не верное значение!');
-
-                if(parseInt(cardAmount)){
-                    switch ($(this).html()) {
-                        case increment:
-                            cardAmount++;
-                            $('.card-amount').eq(index).val(cardAmount);
-                            break;
-
-                        case decrement:
-                            if(cardAmount > 1){
-                                cardAmount--;
-                                $('.card-amount').eq(index).val(cardAmount) ;
-                            }
-                            break;
-
-                        default:
-                            return true;
-                            break;
-                    }
-                }else {
-                    $('.card-amount').eq(index).val(1);
-                }
-
-            })
-
-        });
-    }
-
-    amountCard($('.button__increment'));
-    amountCard($('.button__decrement'));
-
-    // Clear value from input-amount
-
-    $('.card-amount').each(function () {
-        $(this).on('blur', function () {
-            $(this).val() < 1 ? $(this).val(1) : true;
-        });
-
-		$(this).on('change', function () {
-			$(this).val() < 1 ? $(this).val(1) : true;
-		})
-    });
-
-//  Cart
+	
 
 //   Tab
 

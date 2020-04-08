@@ -71,7 +71,7 @@ AppAsset::register($this);
                                     <img src="<?= Url::home(true); ?>/img/header/ico_search.svg" alt="ico_search">
                                 </a>
                             </div>
-                            <a class="menu-cart" href="#!">
+                            <a class="menu-cart" href="<?= Url::home(true); ?>/cart/">
                                 <span>
                                     <img src="<?= Url::home(true); ?>/img/header/icon_cart.svg" alt="icon_cart">
                                 </span>
