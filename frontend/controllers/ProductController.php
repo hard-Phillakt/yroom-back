@@ -25,7 +25,13 @@ class ProductController extends Controller
         $queryProduct = new YProduct();
         $product = $queryProduct::find()->where(['published' => 1, 'category_id' => $requestProduct])->asArray()->orderBy('prioritet ASC')->all();
 
-//      debug($product);
+//      render all
+        if (empty($requestProduct)) {
+
+            $productAll = $queryProduct::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+
+            return $this->render('index', compact(['productAll', 'category']));
+        }
 
 //      render на пустоту
         if (empty($product)) {
@@ -35,7 +41,6 @@ class ProductController extends Controller
 
         return $this->render('index', compact(['product', 'category']));
     }
-
 
     public function actionCard()
     {
@@ -58,5 +63,44 @@ class ProductController extends Controller
 
         return $this->render('card', compact(['product', 'category']));
 
+    }
+
+
+    public function actionAjaxProduct()
+    {
+
+        $this->layout = false;
+
+        $requestFilterProduct = Yii::$app->request->get('filter');
+
+//        debug($requestFilterProduct['price']['after']);
+
+//      Product
+        $queryProduct = new YProduct();
+//        $product = $queryProduct::find()->where(['price' => $requestProduct,'published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+        $product = $queryProduct::find()
+//            ->where(['price' => $requestProduct,'published' => 1])
+            ->andFilterWhere(['>=', 'price', $requestFilterProduct['price']['after']])
+            ->andFilterWhere(['<=', 'price', $requestFilterProduct['price']['before']])
+//            ->andFilterWhere(['like', 'price', $requestFilterProduct['price']['before']])
+            ->asArray()
+            ->orderBy('prioritet ASC')
+            ->all();
+
+//        debug($product);
+
+//        return json_encode($product);
+
+//      render на пустоту
+        if (empty($product)) {
+
+//          Category
+            $queryCategory = new YCategory();
+            $category = $queryCategory::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+
+            return $this->render('ajax-empty-filter', compact(['category']));
+        }
+
+        return $this->render('ajax-product', compact(['product']));
     }
 }

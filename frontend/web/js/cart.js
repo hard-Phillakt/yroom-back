@@ -14,7 +14,7 @@ $(document).ready(function () {
                 var cart = JSON.parse(res);
 
                 // Refresh count prodyct for layout
-                if($('.cart-product-count').eq(0)){
+                if ($('.cart-product-count').eq(0)) {
                     $('.cart-product-count').eq(0).html(cart.qty)
                 }
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
             $(this).on('click', function () {
 
-                var cardAmount = parseInt($('.card-amount').eq(index).val()) ? parseInt($('.card-amount').eq(index).val()) : console.log('Неверное значение!');
+                var cardAmount = parseInt($('.card-amount').eq(index).val()) ? parseInt($('.card-amount').eq(index).val()) : $('.card-amount').eq(index).val(1);
 
                 if (parseInt(cardAmount)) {
                     switch ($(this).html()) {
@@ -108,7 +108,6 @@ $(document).ready(function () {
     //  Cart end
 
 
-
 //  CheckOut
 
     function changeCart(param, position) {
@@ -126,7 +125,7 @@ $(document).ready(function () {
                 $('.card-total-sum-' + position).html(total);
 
                 // Refresh count product for layout
-                if($('.cart-product-count').eq(0)){
+                if ($('.cart-product-count').eq(0)) {
                     $('.cart-product-count').eq(0).html(cart.qty)
                 }
 
@@ -145,8 +144,9 @@ $(document).ready(function () {
     $('.checkout-button__decrement').on('click', function () {
 
         changeCart({
-            id: $(this).data('id'),
-            type: 'DEC'},
+                id: $(this).data('id'),
+                type: 'DEC'
+            },
             parseInt($(this).data('position'))
         );
     });
@@ -154,23 +154,26 @@ $(document).ready(function () {
     $('.checkout-button__increment').on('click', function () {
 
         changeCart({
-            id: $(this).data('id'),
-            type: 'INC'},
+                id: $(this).data('id'),
+                type: 'INC'
+            },
             parseInt($(this).data('position'))
         );
     });
 
     $('.checkout-card-amount').on('change', function () {
 
+        if($(this).val() == 0){
+            $(this).val(1)
+        }
         changeCart({
-            id: $(this).data('id'),
-            type: 'CHANGE',
-            number: parseInt($(this).val())
-        },
+                id: $(this).data('id'),
+                type: 'CHANGE',
+                number: parseInt($(this).val()) != 0 ? parseInt($(this).val()) : 1
+            },
             parseInt($(this).data('position'))
         );
     });
-
 
 
     // removeItemAnimate ################################
@@ -191,6 +194,7 @@ $(document).ready(function () {
             $('.card-count-' + id).remove();
         }, 1000);
     }
+
     // removeItemAnimate ################################ end
 
     $('.card-delete-item').on('click', function () {
@@ -200,14 +204,14 @@ $(document).ready(function () {
         $.ajax({
             url: '/cart/delete',
             data: {id: id},
-            success: function(res){
+            success: function (res) {
 
                 removeItemAnimate(id);
 
-                var cart  = JSON.parse(res);
+                var cart = JSON.parse(res);
 
                 // Refresh count product for layout
-                if($('.cart-product-count').eq(0)){
+                if ($('.cart-product-count').eq(0)) {
                     $('.cart-product-count').eq(0).html(cart.qty)
                 }
 
@@ -217,12 +221,12 @@ $(document).ready(function () {
                 });
 
                 // If cart empty -> template empty-product
-                if(cart.qty === 0){
+                if (cart.qty === 0) {
 
                     setTimeout(function () {
                         $.ajax({
                             url: '/cart/empty-product',
-                            success: function(res){
+                            success: function (res) {
                                 $('#card-box-items').html(res);
                             },
                             error: function (err) {

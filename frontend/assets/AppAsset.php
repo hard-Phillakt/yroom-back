@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/main.js',
         'js/cart.js',
+        'js/filter.js',
         'js/custom.js',
         'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'
     ];

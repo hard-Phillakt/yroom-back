@@ -76,7 +76,13 @@ AppAsset::register($this);
                                     <img src="<?= Url::home(true); ?>/img/header/icon_cart.svg" alt="icon_cart">
                                 </span>
                                 <span class="cart-product-count">
-                                    <?= $_SESSION['cart.qty']; ?>
+                                    <?php
+                                    if(!empty($_SESSION['cart.qty'])){
+                                        echo $_SESSION['cart.qty'];
+                                    }else {
+                                        echo 0;
+                                    }
+                                    ?>
                                 </span>
                             </a>
                         </div>
