@@ -20,6 +20,8 @@ class CartController extends Controller
 
         $product = $queryProduct::find()->where(['id' => $requestId])->asArray()->all();
 
+        $priceDiscount = $product[0]['discount_id'] ? $product[0]['price'] - (round(($product[0]['price'] * $product[0]['discount_id']) / 100)) : round($product[0]['price']);
+
         $session = Yii::$app->session;
 
         $session->open();
@@ -33,14 +35,15 @@ class CartController extends Controller
                 'id' => (int)$product[0]['id'],
                 'qty' => $requestQty ? $requestQty : 1,
                 'title' => $product[0]['title'],
-                'price' => $product[0]['price'],
+//               price с учётом скидки
+                'price' => $priceDiscount,
                 'img' => $product[0]['img_prev']
             ];
         }
 
         $_SESSION['cart.qty'] = isset($_SESSION['cart.qty']) ? $_SESSION['cart.qty'] + $requestQty : $requestQty;
 
-        $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $product[0]['price'] * $requestQty : $product[0]['price'] * $requestQty;
+        $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + round($_SESSION['cart'][$product[0]['id']]['price']) * $requestQty : round($_SESSION['cart'][$product[0]['id']]['price']) * $requestQty;
 
         $dataCart = [
             'cart' => $session['cart'],
@@ -50,13 +53,6 @@ class CartController extends Controller
 
         return json_encode($dataCart);
 
-//        $session->destroy();
-
-//        debug($session['cart']);
-//        echo 'cart.sum: '. $session['cart.sum'] . "<br>";
-//        echo 'cart.qty: '. $session['cart.qty'];
-
-//        Очищаем корзину
     }
 
     public function actionChange()
@@ -73,6 +69,8 @@ class CartController extends Controller
 
         $product = $queryProduct::find()->where(['id' => $qId])->asArray()->all();
 
+        $priceDiscount = $product[0]['discount_id'] ? $product[0]['price'] - (round(($product[0]['price'] * $product[0]['discount_id']) / 100)) : $product[0]['price'];
+
         $session = Yii::$app->session;
 
         $session->open();
@@ -86,7 +84,7 @@ class CartController extends Controller
 
                     $_SESSION['cart.qty'] = $_SESSION['cart.qty'] + 1;
 
-                    $_SESSION['cart.sum'] = $_SESSION['cart.sum'] + $product[0]['price'];
+                    $_SESSION['cart.sum'] = $_SESSION['cart.sum'] + $priceDiscount;
 
                     $dataCart = [
                         'cart' => $session['cart'],
@@ -106,7 +104,7 @@ class CartController extends Controller
 
                         $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - 1;
 
-                        $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $product[0]['price'];
+                        $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $priceDiscount;
                     }
 
                     $dataCart = [
@@ -123,13 +121,13 @@ class CartController extends Controller
                 case ('CHANGE'):
 
                     $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $_SESSION['cart'][$product[0]['id']]['qty'];
-                    $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - ( (int) $product[0]['price'] * $_SESSION['cart'][$product[0]['id']]['qty']);
+                    $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - ( (int) $priceDiscount * $_SESSION['cart'][$product[0]['id']]['qty']);
 
                     $_SESSION['cart'][$product[0]['id']]['qty'] = $qNumber;
 
                     $_SESSION['cart.qty'] = $_SESSION['cart.qty'] + $qNumber;
 
-                    $_SESSION['cart.sum'] = $_SESSION['cart.sum'] + ( (int) $product[0]['price'] * $qNumber);
+                    $_SESSION['cart.sum'] = $_SESSION['cart.sum'] + ( (int) $priceDiscount * $qNumber);
 
                     $dataCart = [
                         'cart' => $session['cart'],
@@ -151,7 +149,6 @@ class CartController extends Controller
 
 
 
-
     public function actionDelete()
     {
         $requestId = Yii::$app->request->get('id');
@@ -162,7 +159,6 @@ class CartController extends Controller
 
             $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - ($_SESSION['cart'][$requestId]['price'] * $_SESSION['cart'][$requestId]['qty']);
             $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $_SESSION['cart'][$requestId]['qty'];
-
 
             unset($_SESSION['cart'][$requestId]);
 
@@ -175,10 +171,6 @@ class CartController extends Controller
             return json_encode($dataCart);
         }
     }
-
-
-
-
 
 
 
@@ -213,5 +205,3 @@ class CartController extends Controller
         return $this->render('index', compact('cart'));
     }
 }
-
-// 10 в 10:00

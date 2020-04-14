@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     //  Cart Add item ajax
     $('.button-buy').on('click', function (e) {
-        e.preventDefault();
+        // e.preventDefault();
 
         var id = $(this).data('id');
         var qty = this.dataset.qty;
@@ -105,6 +105,7 @@ $(document).ready(function () {
         });
 
     });
+    
     //  Cart end
 
 

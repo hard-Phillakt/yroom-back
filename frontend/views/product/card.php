@@ -2,8 +2,6 @@
 
 use yii\helpers\Url;
 
-//debug($product);
-
 $prod = $product[0];
 
 ?>
@@ -15,10 +13,22 @@ $prod = $product[0];
                 <ul class="hit-sales__tabs djc-s">
                     <?php foreach ($category as $item): ?>
 
-                        <li>
-                            <a href="/product/?q-cat=<?= $item['id']; ?>"
-                               class="category-item mr-30"><?= $item['title']; ?></a>
-                        </li>
+                        <?php if ($item['slug'] == 'vse'): ?>
+
+                            <li>
+                                <a href="<?= Url::home(true); ?>/product"
+                                   class="category-item mr-30"><?= $item['title']; ?></a>
+                            </li>
+
+                        <?php else: ?>
+
+                            <li>
+                                <a href="<?= Url::home(true); ?>/product?q-cat=<?= $item['id']; ?>"
+                                   class="category-item mr-30"><?= $item['title']; ?></a>
+                            </li>
+
+                        <?php endif; ?>
+
 
                     <?php endforeach; ?>
                 </ul>

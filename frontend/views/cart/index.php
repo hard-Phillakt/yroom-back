@@ -69,7 +69,7 @@ use yii\helpers\Url;
                                                             <? //= $item['price']; ?><!--</span> р.кв/м-->
                                                         </div>
                                                         <div class="card__new-price djc-s dai-c">
-                                                            <span><?= $item['price']; ?></span>&nbsp; р/кв.м
+                                                            <span><?= round($item['price']); ?></span>&nbsp; р/кв.м
                                                         </div>
                                                     </div>
                                                 </div>
@@ -123,7 +123,7 @@ use yii\helpers\Url;
                                                         </div>
                                                         <div class="mt-10">
                                                         <span
-                                                            class="card-total-sum-<?= $i; ?> desc__xs_bold fs fs__20 pr-5"><?= $item['price'] * $item['qty']; ?></span>
+                                                            class="card-total-sum-<?= $i; ?> desc__xs_bold fs fs__20 pr-5"><?= round($item['price']) * $item['qty']; ?></span>
                                                             руб
                                                         </div>
                                                     </div>
@@ -161,8 +161,6 @@ use yii\helpers\Url;
 
                 <?php endif; ?>
             </div>
-
-
 
             <!-- Delivery column -->
             <div class="col-lg-4">

@@ -59,4 +59,56 @@ $(document).ready(function () {
 
 // DropDown section News end
 
+
+
+
+
+
+//   Box Search
+
+    $('.search a').on('click', function (e) {
+        e.preventDefault();
+
+        $('.search-box').css({
+            display: 'block'
+        });
+
+        $('body').css({overflowY: 'hidden'});
+
+        setTimeout(function () {
+            $('.search-box').css({
+                visibility: 'visible',
+                opacity: 1
+            });
+        }, 100);
+
+    });
+
+    $('.search-box').on('click', function (e) {
+
+        var thisElement = $(this);
+        var q = $(e.target)[0].name;
+
+        if(q !== 'q'){
+
+            $('body').css({overflowY: 'visible'});
+
+            thisElement.css({
+                visibility: 'hidden',
+                opacity: 0
+            });
+
+            setTimeout(function () {
+                thisElement.css({
+                    display: 'none'
+                });
+            }, 500);
+
+        }
+
+    });
+
+
+//   Box Search end
+
 });

@@ -68,13 +68,17 @@ use yii\helpers\Url;
                                 <div class="col-lg-6">
                                     <div class="djc-c dai-c mt-20">
                                         <div class="desc__xs_bold mr-10">От</div>
-                                        <input type="text" name="input-price-after" class="input input-price-after pl-10 pt-10 pb-10" placeholder="0" value="">
+                                        <input type="text" name="input-price-after"
+                                               class="input input-price-after pl-10 pt-10 pb-10" placeholder="0"
+                                               value="100">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="djc-c dai-c mt-20">
                                         <div class="desc__xs_bold mr-10">До</div>
-                                        <input type="text" name="input-price-before" class="input input-price-before pl-10 pt-10 pb-10" placeholder="900" value="">
+                                        <input type="text" name="input-price-before"
+                                               class="input input-price-before pl-10 pt-10 pb-10" placeholder="900"
+                                               value="900">
                                     </div>
                                 </div>
 
@@ -147,8 +151,20 @@ use yii\helpers\Url;
                                                             <?php endif; ?>
                                                         </div>
                                                         <div class="card__new-price">
-                                                            <span><?= round($item['price'] - $total); ?></span>
+
+                                                            <span>
+                                                                <?php if (!empty($item['discount_id'])): ?>
+
+                                                                    <?= round($item['price'] - $total); ?>
+
+                                                                <?php else: ?>
+
+                                                                    <?= $item['price']; ?>
+
+                                                                <?php endif; ?>
+                                                            </span>
                                                             р/кв.м
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -218,7 +234,18 @@ use yii\helpers\Url;
                                                             <?php endif; ?>
                                                         </div>
                                                         <div class="card__new-price">
-                                                            <span><?= round($item['price'] - $total); ?></span>
+
+                                                            <span>
+                                                                <?php if (!empty($item['discount_id'])): ?>
+
+                                                                    <?= round($item['price'] - $total); ?>
+
+                                                                <?php else: ?>
+
+                                                                    <?= $item['price']; ?>
+
+                                                                <?php endif; ?>
+                                                            </span>
                                                             р/кв.м
                                                         </div>
                                                     </div>

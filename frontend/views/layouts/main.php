@@ -159,6 +159,26 @@ AppAsset::register($this);
         </div>
     </footer>
 
+    <form class="search-box" action="/search/">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-lg-offset-2 col-md-9 col-md-offset-2 col-sm-12 col-xs-12 ">
+                    <div class="djc-end">
+                        <span class="fs fs__20 pt-10 pr-10 pb-10 pl-10 color__white card-delete-item">×</span>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-2 col-sm-12 col-xs-12 ">
+                    <input id="cooperation-form-name__name" name="q" class="input pt-20 pr-5 pb-20 pl-20" type="text" placeholder="Поиск...">
+                    <div class="button-search-box">
+                        <button type="submit" class="button-search">
+                            <img src="<?= Url::home(true); ?>/img/icons/btn-search.svg" alt="btn-search">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 </div>
 
 <?php $this->endBody() ?>

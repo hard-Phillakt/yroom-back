@@ -2,16 +2,12 @@ $(document).ready(function () {
 
     var globalState = {};
 
-
     function ajaxFilterSend(param) {
 
         $.ajax({
             url: '/product/ajax-product',
             data: {filter: param},
             success: function (res) {
-                // var data = JSON.parse(res);
-                // console.log('ajax-product res :', res);
-
                 $('#product-box-items').html(res);
             },
             error: function (err) {
@@ -45,10 +41,46 @@ $(document).ready(function () {
             $('.input-price-before').val(values[1]);
 
             ajaxFilterSend(globalState);
+
         });
 
 // filter-slider-price end #############################################
     }
+
+    // Change input after & before
+
+    // after
+    $('input[name="input-price-after"]').on('change', function (e) {
+
+        var value = parseInt($(this).val());
+
+        globalState.price = {
+            after: value,
+            before: parseInt($('input[name="input-price-before"]').val())
+        };
+
+        ajaxFilterSend(globalState);
+
+        console.log('after: ', globalState);
+    });
+
+    // before
+    $('input[name="input-price-before"]').on('change', function (e) {
+
+        var value = parseInt($(this).val());
+
+        globalState.price = {
+            after: parseInt($('input[name="input-price-after"]').val()),
+            before: value
+        };
+
+        ajaxFilterSend(globalState);
+
+        console.log('before: ', globalState);
+    });
+
+
+    // Change input after & before end
 
 
     var filterSliderSquares = document.getElementById('filter-slider-squares');

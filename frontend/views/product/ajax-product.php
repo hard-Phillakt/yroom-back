@@ -52,7 +52,17 @@ use yii\helpers\Url;
                                     <?php endif; ?>
                                 </div>
                                 <div class="card__new-price">
-                                    <span><?= round($item['price'] - $total); ?></span>
+                                    <span>
+                                        <?php if (!empty($item['discount_id'])): ?>
+
+                                            <?= round($item['price'] - $total); ?>
+
+                                        <?php else: ?>
+
+                                            <?= $item['price']; ?>
+
+                                        <?php endif; ?>
+                                    </span>
                                     р/кв.м
                                 </div>
                             </div>

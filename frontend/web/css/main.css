@@ -8342,6 +8342,11 @@ label {
   .color__black:hover {
     color: #fff; }
 
+.color__white {
+  color: #fff; }
+.color__white:hover {
+  color: #000; }
+
 #nav-tab .nav-link {
   color: #000; }
   #nav-tab .nav-link:hover, #nav-tab .nav-link:focus {

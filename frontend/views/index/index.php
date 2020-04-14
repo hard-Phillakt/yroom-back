@@ -68,13 +68,16 @@ use yii\helpers\Url;
 
                     <div class="<?= $catCounter == 0 ? 'col-lg-8' : 'col-lg-4'; ?>">
                         <div class="floor-coverings__box mb-30">
-                            <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>" class="floor-coverings__box_header"
+                            <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>"
+                               class="floor-coverings__box_header"
                                style="background: url(<?= $item['img_prev']; ?>)"></a>
                             <div class="floor-coverings__box_footer djc-sb mt-30">
-                                <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>" class="link link-floor-coverings">
+                                <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>"
+                                   class="link link-floor-coverings">
                                     <?= $item['title']; ?>
                                 </a>
-                                <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>" class="link link-floor-coverings_arrow"><img
+                                <a href="<?= Url::home(true); ?><?= $item['link']; ?>?q-cat=<?= $item['id']; ?>"
+                                   class="link link-floor-coverings_arrow"><img
                                         src="../img/floor-coverings/ico_arrow.svg" alt="ico_arrow"></a>
                             </div>
                         </div>
@@ -193,7 +196,17 @@ use yii\helpers\Url;
                                                                         </div>
 
                                                                         <div class="card__new-price">
-                                                                            <span><?= round($item['price'] - $total); ?></span>
+                                                                            <span>
+                                                                                <?php if (!empty($item['discount_id'])): ?>
+
+                                                                                    <?= round($item['price'] - $total); ?>
+
+                                                                                <?php else: ?>
+
+                                                                                    <?= $item['price']; ?>
+
+                                                                                <?php endif; ?>
+                                                                            </span>
                                                                             р/кв.м
                                                                         </div>
 
