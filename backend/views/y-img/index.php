@@ -2,12 +2,14 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+Url::remember();
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\YImgSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Y Imgs';
+$this->title = 'Картинки';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -16,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Y Img', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

@@ -2,12 +2,14 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+Url::remember();
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\YStockSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Y Stocks';
+$this->title = 'Акции';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ystock-index">
@@ -15,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Y Stock', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,14 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description',
-            'meta_title',
-            'meta_description',
+//            'description',
+//            'meta_title',
+//            'meta_description',
             //'img_prev',
             //'essence',
             //'date',
-            //'published',
-            //'prioritet',
+            'published',
+            'prioritet',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

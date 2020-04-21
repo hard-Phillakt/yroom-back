@@ -3,12 +3,14 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use backend\models\YCategory;
+use yii\helpers\Url;
+Url::remember();
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\modelsYProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Y Products';
+$this->title = 'Товары';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="yproduct-index">
@@ -16,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Y Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

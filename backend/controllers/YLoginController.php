@@ -30,7 +30,7 @@ class YLoginController extends Controller
 
                 Yii::$app->user->login($identity, 3600*24*30);
 
-               return $this->redirect('admin/y-news/index');
+               return $this->redirect('/admin/y-home-back/');
             }
         }
 

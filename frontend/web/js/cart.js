@@ -206,10 +206,10 @@ $(document).ready(function () {
             url: '/cart/delete',
             data: {id: id},
             success: function (res) {
+                
+                var cart = JSON.parse(res);
 
                 removeItemAnimate(id);
-
-                var cart = JSON.parse(res);
 
                 // Refresh count product for layout
                 if ($('.cart-product-count').eq(0)) {

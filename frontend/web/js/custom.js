@@ -55,13 +55,11 @@ $(document).ready(function () {
                 })
             }
         });
-    }dropdownMenuBox();
+    }
+
+    dropdownMenuBox();
 
 // DropDown section News end
-
-
-
-
 
 
 //   Box Search
@@ -89,7 +87,7 @@ $(document).ready(function () {
         var thisElement = $(this);
         var q = $(e.target)[0].name;
 
-        if(q !== 'q'){
+        if (q !== 'q') {
 
             $('body').css({overflowY: 'visible'});
 
@@ -110,5 +108,68 @@ $(document).ready(function () {
 
 
 //   Box Search end
+
+
+//   category-item
+
+    $('.category-item').each(function (i, item) {
+
+        if ($(item).attr('href') == window.location.href) {
+            $(this).addClass('category-item__active')
+        }
+
+    });
+
+//   category-item end
+
+
+//    callback-add-item
+
+    var addItem = document.querySelector('.cart-product-count');
+
+    var oldStateCountItem;
+    var NewStateCountItem;
+
+    var observer = new MutationObserver(function (res) {
+
+        console.log(res);
+
+        oldStateCountItem = res[0].removedNodes[0].data;
+        NewStateCountItem = res[1].addedNodes[0].data;
+
+        if(parseInt(NewStateCountItem) > parseInt(oldStateCountItem)){
+            $('.callback-add-item').css({
+                visibility: 'visible',
+                opacity: 1
+            });
+
+            setTimeout(function () {
+                $('.callback-add-item').css({
+                    visibility: 'hidden',
+                    opacity: 0
+                })
+            }, 1500);
+        }
+    });
+
+    observer.observe(addItem, {
+        childList: true,
+        subtree: true,
+        characterDataOldValue: true
+    });
+
+
+    window.onscroll = function () {
+        var pYoffset = window.pageYOffset;
+
+        if(pYoffset >= 200){
+            $('.callback-add-item').addClass('callback-add-item__fixed')
+        }else {
+            $('.callback-add-item').removeClass('callback-add-item__fixed')
+        }
+
+    };
+
+//    callback-add-item end
 
 });

@@ -2,12 +2,14 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+Url::remember();
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\YNewsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Y News';
+$this->title = 'Новости';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ynews-index">
@@ -15,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Y News', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,9 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description',
-            'meta_title',
-            'meta_description',
+//            'description',
+//            'meta_title',
+//            'meta_description',
             //'img_prev',
             'essence',
             //'date',

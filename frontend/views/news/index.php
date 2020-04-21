@@ -14,7 +14,7 @@ use \yii\helpers\Url;
                 <div class="djc-c dfd-column pt-80 pb-80">
                     <div class="pl-30">
                         <h4 class="title title-h4">Напольные покрытия</h4>
-                        <div class="pt-20">Показать</div>
+<!--                        <div class="pt-20">Показать</div>-->
                     </div>
 
                     <div class="mt-30">

@@ -11,7 +11,7 @@ use yii\helpers\Url;
                 <div class="mt-30 mb-50">
                     <a href="<?= Url::home(true); ?>" class="link-breadcrumb">Главная</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg"
                                                                                alt="row"></span>
-                    <a href="<?= Url::home(true); ?>/news" class="link-breadcrumb">Новости</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg"
+                    <a href="<?= Url::home(true); ?>/news" class="link-breadcrumb">Новости и статьи</a><span><img src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg"
                                                                                alt="row"></span>
                     <span class="link-breadcrumb-this">Описание замков ламината</span>
                 </div>

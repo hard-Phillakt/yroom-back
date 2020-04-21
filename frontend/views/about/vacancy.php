@@ -72,6 +72,12 @@ use yii\helpers\Url;
                                         <li>на территории работадателя</li>
                                     </ul>
                                 </div>
+
+                                <div class="mt-30">
+                                    <div class="djc-c button button-buy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
+                                        Откликнуться на вакансию
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="dfd-column">
@@ -103,6 +109,7 @@ use yii\helpers\Url;
                                         </li>
                                     </ul>
                                 </div>
+
                             </div>
 
                         </div>
@@ -138,6 +145,12 @@ use yii\helpers\Url;
                                         <li>Полный рабочий день</li>
                                         <li>на территории работадателя</li>
                                     </ul>
+                                </div>
+
+                                <div class="mt-30">
+                                    <div class="djc-c button button-buy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
+                                        Откликнуться на вакансию
+                                    </div>
                                 </div>
                             </div>
 

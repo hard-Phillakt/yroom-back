@@ -166,7 +166,7 @@ use yii\helpers\Url;
             <div class="col-lg-4">
 
                 <div class="ml-30 mb-30">
-                    <h1 class="title title-h1">Доставка</h1>
+                    <h1 class="title title-h1">Способ получения</h1>
                 </div>
 
                 <div class="pt-10 pr-30 pb-30 pl-30">

@@ -50,4 +50,30 @@ return [
         ],
     ],
     'params' => $params,
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\Controller',
+            //'plugin' => ['\mihaildev\elfinder\plugin\Sluggable'],
+            'plugin' => [
+                [
+                    'class' => '\mihaildev\elfinder\plugin\Sluggable',
+                    'lowercase' => true,
+                    'replacement' => '-'
+                ]
+            ],
+            'roots' => [
+                [
+                    'baseUrl' => '@web',
+                    'basePath' => '@webroot',
+                    'path' => 'files/global',
+                    'name' => 'Global',
+                    'plugin' => [
+                        'Sluggable' => [
+                            'lowercase' => false,
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ]
 ];

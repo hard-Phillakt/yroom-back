@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
+
+$previous = Url::previous();
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\YNews */
@@ -14,6 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="ynews-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
+
+    <div class="mt-30 mb-30">
+        <?= Html::a('Назад', $previous, ['class' => 'link link__a']); ?>
+    </div>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>

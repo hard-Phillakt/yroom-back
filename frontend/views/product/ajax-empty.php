@@ -29,7 +29,7 @@ use yii\helpers\Url;
         <div class="row">
             <!-- item -->
 
-            <div class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12  pt-80 pb-80">
+            <div class="col-lg-9 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12  pt-80 pb-80">
 
                 <div class="djc-c">
                     <h3 class="title title-h3">Информация для данной категории вскоре будет добавлена на сайт.</h3>
