@@ -42,9 +42,11 @@ $prod = $product[0];
         <div class="row">
             <div class="col-lg-12">
                 <div class="mt-30 mb-50">
-                    <a href="#!" class="link-breadcrumb">Главная</a><span><img
+                    <a href="<?= Url::home(true); ?>" class="link-breadcrumb">Главная</a><span><img
                             src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg" alt="row"></span>
-                    <span class="link-breadcrumb-this">Каталог</span>
+                    <a href="<?= Url::home(true); ?>/product" class="link-breadcrumb">Каталог</a><span><img
+                            src="<?= Url::home(true); ?>/img/breadcrumbs/row.svg" alt="row"></span>
+                    <span class="link-breadcrumb-this"><?= $prod['title']; ?></span>
                 </div>
             </div>
         </div>
@@ -148,7 +150,7 @@ $prod = $product[0];
                                             <div
                                                 data-qty="1"
                                                 data-id="<?= $prod['id']; ?>"
-                                                class="button button-buy fs fs__16 pl-10 pr-10 pt-20 pb-20 djc-c dai-c">
+                                                class="button button-buy button-buy-cart fs fs__16 pl-10 pr-10 pt-20 pb-20 djc-c dai-c">
                                                 В корзину
                                             </div>
                                         </div>
@@ -162,44 +164,52 @@ $prod = $product[0];
                                             </div>
                                         </div>
 
-                                        <div class="djc-c">
-                                            <div class="mt-20 mr-10">
-                                                <input type="text" class="input pt-10 pb-10 pl-10 fs fs__12"
-                                                       placeholder="Ширина (м)">
-                                                <div class="mt-30 ml-20">
-                                                    <label class="djc-s unpacked circle-dots-wrapper">
-                                                        <div class="circle-dots">
-                                                            <span class="circle-dots-active"></span>
-                                                        </div>
-                                                        <div class="ml-10 fs fs__12">
-                                                            Прямая укладка
-                                                        </div>
-                                                        <input type="radio" name="styling" value="straight" checked>
-                                                    </label>
+                                        <form id="form-card-item">
+                                            <div class="djc-sa">
+                                                <div class="mt-20 mr-10">
+                                                    <input type="text" name="card-user-name" class="input pt-10 pb-10 pl-10 fs fs__12"
+                                                           placeholder="Имя" required>
+                                                    <div class="mt-30 ml-20">
+                                                        <label class="djc-s unpacked circle-dots-wrapper">
+                                                            <div class="circle-dots">
+                                                                <span class="circle-dots-active"></span>
+                                                            </div>
+                                                            <div class="ml-10 fs fs__12">
+                                                                Прямая укладка
+                                                            </div>
+                                                            <input type="radio" name="styling" value="Прямая укладка" checked>
+                                                        </label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mt-20 ml-10">
-                                                <input type="text" class="input pt-10 pb-10 pl-10 fs fs__12"
-                                                       placeholder="Длина (м)">
-                                                <div class="mt-30 ml-20">
-                                                    <label class="djc-s unpacked circle-dots-wrapper">
-                                                        <div class="circle-dots">
-                                                            <span></span>
-                                                        </div>
-                                                        <div class="ml-10 fs fs__12">
-                                                            По диагонали
-                                                        </div>
-                                                        <input type="radio" name="styling" value="diagonals">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="mt-30">
-                                            <div class="button button__tran pt-5 pb-5 dai-c djc-c mt-20">Оставить
-                                                заявку
+                                                <div class="mt-20 ml-10">
+                                                    <input type="text" name="card-user-phone" class="input pt-10 pb-10 pl-10 fs fs__12"
+                                                           placeholder="Телефон" required>
+                                                    <div class="mt-30 ml-20">
+                                                        <label class="djc-s unpacked circle-dots-wrapper">
+                                                            <div class="circle-dots">
+                                                                <span></span>
+                                                            </div>
+                                                            <div class="ml-10 fs fs__12">
+                                                                По диагонали
+                                                            </div>
+                                                            <input type="radio" name="styling" value="По диагонали">
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+
+                                            <div>
+                                                <input type="hidden" name="card-item-id" value="<?= $prod['id']; ?>">
+                                                <input type="hidden" name="card-item-title" value="<?= $prod['title']; ?>">
+                                            </div>
+
+                                            <div class="mt-30">
+                                                <button type="submit" class="button button__tran pt-5 pb-5 dai-c djc-c mt-20">Оставить
+                                                    заявку
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -211,3 +221,19 @@ $prod = $product[0];
         </div>
     </div>
 </section>
+
+<div class="modal modal-card-success fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <h1 class="djc-c title title-h1">Спасибо!</h1>
+                <div class="djc-c desc desc__sm mt-40">
+                    С Вами свяжутся наши специалисты для уточнений деталей!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

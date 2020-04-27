@@ -10,6 +10,22 @@ use backend\models\YProduct;
 class CartController extends Controller
 {
 
+    public function actionIndex()
+    {
+
+        $session = Yii::$app->session;
+
+        $session->open();
+
+        $cart = [
+            'cart' => $session['cart'],
+            'sum' => $session['cart.sum'],
+            'qty' => $session['cart.qty'],
+        ];
+
+        return $this->render('index', compact('cart'));
+    }
+
     public function actionAdd()
     {
 
@@ -147,8 +163,6 @@ class CartController extends Controller
 
     }
 
-
-
     public function actionDelete()
     {
         $requestId = Yii::$app->request->get('id');
@@ -172,14 +186,11 @@ class CartController extends Controller
         }
     }
 
-
-
     public function actionDestroy()
     {
         $session = Yii::$app->session;
         $session->destroy();
     }
-
 
     public function actionEmptyProduct()
     {
@@ -188,8 +199,7 @@ class CartController extends Controller
         return $this->render('empty-product');
     }
 
-
-    public function actionIndex()
+    public function actionGetProduct()
     {
 
         $session = Yii::$app->session;
@@ -202,6 +212,7 @@ class CartController extends Controller
             'qty' => $session['cart.qty'],
         ];
 
-        return $this->render('index', compact('cart'));
+        return json_encode($cart);
     }
+
 }

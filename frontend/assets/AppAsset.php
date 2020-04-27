@@ -18,10 +18,11 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/main.js',
-        'js/cart.js',
-        'js/filter.js',
+        'js/cart-filter.js',
         'js/custom.js',
-        'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'
+        'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js',
+        'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

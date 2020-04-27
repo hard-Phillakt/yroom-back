@@ -74,7 +74,7 @@ use yii\helpers\Url;
                                 </div>
 
                                 <div class="mt-30">
-                                    <div class="djc-c button button-buy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
+                                    <div class="djc-c button button-buy button-vacancy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
                                         Откликнуться на вакансию
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@ use yii\helpers\Url;
                                 </div>
 
                                 <div class="mt-30">
-                                    <div class="djc-c button button-buy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
+                                    <div class="djc-c button button-buy button-vacancy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
                                         Откликнуться на вакансию
                                     </div>
                                 </div>
@@ -191,4 +191,60 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
-</section> 
+</section>
+
+
+<div class="modal modal-vacancy fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="vacancy-form" id="vacancy-form">
+                    <div class="mb-30">
+                        <label for="vacancy-form-name__name" class="pl-10">Фамилия Имя Отчество*</label>
+                        <div class="mt-10">
+                            <input id="vacancy-form-name__name" name="vacancy-name" class="input pt-10 pr-5 pb-10 pl-20" type="text" placeholder="Введите ваши Ф.И.О" required>
+                        </div>
+                    </div>
+                    <div class="mb-30">
+                        <label for="vacancy-form-name__phone" class="pl-10">Телефон*</label>
+                        <div class="mt-10">
+                            <input id="vacancy-form-name__phone" name="vacancy-phone" class="input pt-10 pr-5 pb-10 pl-20" type="text" placeholder="Введите контактный номер телефона" required>
+                        </div>
+                    </div>
+                    <div class="mb-30">
+                        <label for="vacancy-form-name__vacancy" class="pl-10">Введите название вакансии*</label>
+                        <div class="mt-10">
+                            <input id="vacancy-form-name__vacancy" name="vacancy-vacant" class="input pt-10 pr-5 pb-10 pl-20" type="text" placeholder="Введите название вакансии" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button type="submit" class="djc-c button button__tran button-vacant pl-50 pr-50 pt-10 pb-10 dai-c">
+                                Отправить
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-vacancy-success fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <h1 class="djc-c title title-h1">Спасибо!</h1>
+                <div class="djc-c desc desc__sm mt-40">
+                    С Вами свяжутся наши специалисты для уточнений деталей!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

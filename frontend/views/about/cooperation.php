@@ -88,7 +88,7 @@ use yii\helpers\Url;
 
 <!-- form-dealer -->
 <section class="cooperation-dealer pt-60 pb-60">
-    <div class="cooperation-form" id="dealer">
+    <form class="cooperation-form" id="dealer">
         <div class="container">
 
             <div class="row">
@@ -104,15 +104,7 @@ use yii\helpers\Url;
                         <label for="cooperation-form-name__name" class="pl-10">Фамилия Имя Отчество*</label>
                         <div class="mt-10">
                             <input id="cooperation-form-name__name" name="cooperation-name" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Введите ваши Ф.И.О">
-                        </div>
-                    </div>
-
-                    <div class="mt-30">
-                        <label for="cooperation-form-name__company" class="pl-10">Название компании*</label>
-                        <div class="mt-10">
-                            <input id="cooperation-form-name__company" name="cooperation-company" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Введите название компании">
+                                   type="text" placeholder="Введите ваши Ф.И.О" required>
                         </div>
                     </div>
 
@@ -120,7 +112,15 @@ use yii\helpers\Url;
                         <label for="cooperation-form-name__phone" class="pl-10">Телефон*</label>
                         <div class="mt-10">
                             <input id="cooperation-form-name__phone" name="cooperation-phone" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Введите контактный номер телефона">
+                                   type="text" placeholder="Введите контактный номер телефона" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-30">
+                        <label for="cooperation-form-name__company" class="pl-10">Название компании*</label>
+                        <div class="mt-10">
+                            <input id="cooperation-form-name__company" name="cooperation-company" class="input pt-10 pr-5 pb-10 pl-20"
+                                   type="text" placeholder="Введите название компании" required>
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@ use yii\helpers\Url;
                         <label for="cooperation-form-name__city" class="pl-10">Город*</label>
                         <div class="mt-10">
                             <input id="cooperation-form-name__city" name="cooperation-city" class="input pt-10 pr-5 pb-10 pl-20" type="text"
-                                   placeholder="Укажите ваш город">
+                                   placeholder="Укажите ваш город" required>
                         </div>
                     </div>
 
@@ -137,10 +137,10 @@ use yii\helpers\Url;
                 <div class="col-lg-5 col-lg-offset-2">
 
                     <div class="mt-30">
-                        <label for="cooperation-form-name__email" class="pl-10">Email</label>
+                        <label for="cooperation-form-name__email" class="pl-10">Email*</label>
                         <div class="mt-10">
                             <input id="cooperation-form-name__email" name="cooperation-email" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Укажите ваш email">
+                                   type="text" placeholder="Укажите ваш email" required>
                         </div>
                     </div>
 
@@ -155,9 +155,9 @@ use yii\helpers\Url;
 
                     <div class="row">
                         <div class="col-lg-5 col-lg-offset-7">
-                            <div class="button button-buy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
+                            <button type="submit" class="button button-buy button-cooperation pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
                                 Отправить
-                            </div>
+                            </button>
                         </div>
                     </div>
 
@@ -165,7 +165,7 @@ use yii\helpers\Url;
 
             </div>
         </div>
-    </div>
+    </form>
 </section>
 
 <!-- section specialists -->
@@ -274,7 +274,7 @@ use yii\helpers\Url;
 
 <!-- form-specialists -->
 <section class="cooperation-dealer pt-60 pb-60">
-    <div class="cooperation-form" id="specialists">
+    <form class="cooperation-form" id="specialists">
         <div class="container">
 
             <div class="row">
@@ -290,7 +290,7 @@ use yii\helpers\Url;
                         <label for="specialists-form-name__name" class="pl-10">Фамилия Имя Отчество*</label>
                         <div class="mt-10">
                             <input id="specialists-form-name__name" name="specialists-name" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Введите ваши Ф.И.О">
+                                   type="text" placeholder="Введите ваши Ф.И.О" required>
                         </div>
                     </div>
 
@@ -298,7 +298,7 @@ use yii\helpers\Url;
                         <label for="specialists-form-name__company" class="pl-10">Название компании</label>
                         <div class="mt-10">
                             <input id="specialists-form-name__company" name="specialists-company" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Введите название компании">
+                                   type="text" placeholder="Введите название компании" required>
                         </div>
                     </div>
 
@@ -306,7 +306,7 @@ use yii\helpers\Url;
                         <label for="specialists-form-name__phone" class="pl-10">Телефон*</label>
                         <div class="mt-10">
                             <input id="specialists-form-name__phone" name="specialists-phone" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Введите контактный номер телефона">
+                                   type="text" placeholder="Введите контактный номер телефона" required>
                         </div>
                     </div>
 
@@ -314,7 +314,7 @@ use yii\helpers\Url;
                         <label for="specialists-form-name__city" class="pl-10">Город*</label>
                         <div class="mt-10">
                             <input id="specialists-form-name__city" name="specialists-city" class="input pt-10 pr-5 pb-10 pl-20" type="text"
-                                   placeholder="Укажите ваш город">
+                                   placeholder="Укажите ваш город" required>
                         </div>
                     </div>
 
@@ -326,7 +326,7 @@ use yii\helpers\Url;
                         <label for="specialists-form-name__email" class="pl-10">Email</label>
                         <div class="mt-10">
                             <input id="specialists-form-name__email" name="specialists-email" class="input pt-10 pr-5 pb-10 pl-20"
-                                   type="text" placeholder="Укажите ваш email">
+                                   type="text" placeholder="Укажите ваш email" required>
                         </div>
                     </div>
 
@@ -341,9 +341,9 @@ use yii\helpers\Url;
 
                     <div class="row">
                         <div class="col-lg-5 col-lg-offset-7">
-                            <div class="button button-buy pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
+                            <button type="submit" class="button button-buy button-cooperation pl-50 pr-50 pt-10 pb-10 dai-c mt-20">
                                 Отправить
-                            </div>
+                            </button>
                         </div>
                     </div>
 
@@ -351,5 +351,22 @@ use yii\helpers\Url;
 
             </div>
         </div>
-    </div>
+    </form>
 </section>
+
+
+<div class="modal modal-cooperation-success fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <h1 class="djc-c title title-h1">Спасибо!</h1>
+                <div class="djc-c desc desc__sm mt-40">
+                    С Вами свяжутся наши специалисты для уточнений деталей!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

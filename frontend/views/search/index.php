@@ -2,6 +2,7 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+
 //debug($query);
 
 ?>
@@ -95,17 +96,18 @@ use yii\helpers\Html;
                                                 </div>
                                                 <div class="card__new-price">
 
-                                                            <span>
-                                                                <?php if (!empty($item['discount_id'])): ?>
+                                                    <span>
+                                                        <?php if (!empty($item['discount_id'])): ?>
 
-                                                                    <?= round($item['price'] - $total); ?>
+                                                            <?= round($item['price'] - $total); ?>
 
-                                                                <?php else: ?>
+                                                        <?php else: ?>
 
-                                                                    <?= $item['price']; ?>
+                                                            <?= $item['price']; ?>
 
-                                                                <?php endif; ?>
-                                                            </span>
+                                                        <?php endif; ?>
+                                                    </span>
+
                                                     р/кв.м
 
                                                 </div>
@@ -115,7 +117,7 @@ use yii\helpers\Html;
                                             <div
                                                 data-qty="1"
                                                 data-id="<?= $item['id']; ?>"
-                                                class="button button-buy pl-10 pr-10 pt-10 pb-10 djc-c dai-c mt-30">
+                                                class="button button-buy button-buy-cart pl-10 pr-10 pt-10 pb-10 djc-c dai-c mt-30">
                                                 В корзину
                                             </div>
                                         </div>

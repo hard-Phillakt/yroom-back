@@ -1,5 +1,5 @@
 
-<section class="error mt-90 pt-60 pb-60">
+<section class="error mt-90 pt-80 pb-80">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

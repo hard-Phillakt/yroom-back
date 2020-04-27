@@ -134,7 +134,7 @@ use yii\helpers\Url;
                                 </div>
                             </div>
                         </div>
-                        
+
                         <?php $i++; ?>
 
                     <?php endforeach; ?>
@@ -150,7 +150,8 @@ use yii\helpers\Url;
                                 </div>
 
                                 <div class="djc-s mt-30">
-                                    <p class="desc desc__md opac__07 desc__xs_bold"> О наличии или заказе товаров вы можете уточнить по телефону:
+                                    <p class="desc desc__md opac__07 desc__xs_bold"> О наличии или заказе товаров вы
+                                        можете уточнить по телефону:
                                         <a href="tel:+74722347005">+7 (4722) 34-70-05</a>
                                     </p>
                                 </div>
@@ -196,13 +197,13 @@ use yii\helpers\Url;
                                                 <div class="mb-30">
                                                     <input type="text" name="cart-name"
                                                            class="input pt-5 pb-5 pl-20 fs fs__14"
-                                                           placeholder="Ваше имя">
+                                                           placeholder="Ваше имя" required>
                                                 </div>
 
                                                 <div class="mb-30">
                                                     <input type="text" name="cart-phone"
                                                            class="input pt-5 pb-5 pl-20 fs fs__14"
-                                                           placeholder="Контактный номер">
+                                                           placeholder="Контактный номер" required>
 
                                                     <div class="circle-dots-wrapper">
                                                         <input type="radio" name="pickup">
@@ -264,7 +265,8 @@ use yii\helpers\Url;
 
                                             <div class="mt-40">
                                                 <button type="submit"
-                                                        class="button button-buy color color__black bg bg__yellow fs fs__16 pl-10 pr-10 pt-10 pb-10 djc-c dai-c">
+                                                        id="pickup-submit"
+                                                        class="button color color__black bg bg__yellow fs fs__16 pl-10 pr-10 pt-10 pb-10 djc-c dai-c">
                                                     Оформить заказ
                                                 </button>
                                             </div>
@@ -298,7 +300,7 @@ use yii\helpers\Url;
                                                         <div class="ml-10 fs fs__16">
                                                             По городу
                                                         </div>
-                                                        <input type="radio" name="styling" value="po-gorod"
+                                                        <input type="radio" name="styling" value="По городу"
                                                                checked>
                                                     </label>
                                                 </div>
@@ -311,7 +313,7 @@ use yii\helpers\Url;
                                                         <div class="ml-10 fs fs__16">
                                                             За город
                                                         </div>
-                                                        <input type="radio" name="styling" value="za-gorod">
+                                                        <input type="radio" name="styling" value="За город">
 
                                                         <input type="radio" name="delivery" value="yes" checked>
                                                     </label>
@@ -320,18 +322,24 @@ use yii\helpers\Url;
 
                                             <div class="mt-30">
                                                 <div class="mb-30">
-                                                    <input type="text" class="input pt-5 pb-5 pl-20 fs fs__14"
-                                                           placeholder="Ваше имя">
+                                                    <input
+                                                        name="cart-name"
+                                                        type="text" class="input pt-5 pb-5 pl-20 fs fs__14"
+                                                        placeholder="Ваше имя" required>
                                                 </div>
 
                                                 <div class="mb-30">
-                                                    <input type="text" class="input pt-5 pb-5 pl-20 fs fs__14"
-                                                           placeholder="Контактный номер">
+                                                    <input
+                                                        name="cart-phone"
+                                                        type="text" class="input pt-5 pb-5 pl-20 fs fs__14"
+                                                        placeholder="Контактный номер" required>
                                                 </div>
 
                                                 <div class="mb-30">
-                                                    <input type="text" class="input pt-5 pb-5 pl-20 fs fs__14"
-                                                           placeholder="Адрес доставки">
+                                                    <input
+                                                        name="cart-address"
+                                                        type="text" class="input pt-5 pb-5 pl-20 fs fs__14"
+                                                        placeholder="Адрес доставки" required>
                                                 </div>
                                             </div>
 
@@ -434,7 +442,8 @@ use yii\helpers\Url;
 
                                             <div class="mt-40">
                                                 <button type="submit"
-                                                        class="button button-buy color color__black bg bg__yellow fs fs__16 pl-10 pr-10 pt-10 pb-10 djc-c dai-c">
+                                                        id="delivery-submit"
+                                                        class="button color color__black bg bg__yellow fs fs__16 pl-10 pr-10 pt-10 pb-10 djc-c dai-c">
                                                     Оформить заказ
                                                 </button>
                                             </div>
@@ -451,3 +460,17 @@ use yii\helpers\Url;
         </div>
     </div>
 </section>
+
+<div class="modal modal-callback-success fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <h4 class="djc-c modal-title modal-title title title-h2">Спасибо за заказ!</h4>
+                <p class="djc-c desc desc__sm mt-20" style="text-align: center">С вами свяжется наш менеджер по указанному телефону для обсуждения деталей.</p>
+            </div>
+        </div>
+    </div>
+</div>

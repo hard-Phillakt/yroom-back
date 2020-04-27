@@ -300,3 +300,20 @@ body {
 
 /* Mobile menu end*/
 
+
+/* modal callback*/
+
+.modal-header {
+    border-bottom: 1px solid transparent !important;
+}
+
+/* modal callback end*/
+
+
+/* Validate class error*/
+
+form .error {
+    color: #ff0000;
+}
+
+/* Validate class error end*/

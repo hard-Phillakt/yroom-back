@@ -65,31 +65,23 @@ class ProductController extends Controller
 
     }
 
-
     public function actionAjaxProduct()
     {
 
         $this->layout = false;
 
         $requestFilterProduct = Yii::$app->request->get('filter');
-
-//        debug($requestFilterProduct['price']['after']);
-
+        
 //      Product
         $queryProduct = new YProduct();
-//        $product = $queryProduct::find()->where(['price' => $requestProduct,'published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+
         $product = $queryProduct::find()
 //            ->where(['price' => $requestProduct,'published' => 1])
             ->andFilterWhere(['>=', 'price', $requestFilterProduct['price']['after']])
             ->andFilterWhere(['<=', 'price', $requestFilterProduct['price']['before']])
-//            ->andFilterWhere(['like', 'price', $requestFilterProduct['price']['before']])
             ->asArray()
             ->orderBy('prioritet ASC')
             ->all();
-
-//        debug($product);
-
-//        return json_encode($product);
 
 //      render на пустоту
         if (empty($product)) {

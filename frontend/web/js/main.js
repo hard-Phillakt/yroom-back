@@ -10759,15 +10759,6 @@ $(document).ready(function () {
 
     checkBox(checkbox);
 
-
-    // Test form dealer
-    $('#form-dealer').on('submit', function (e) {
-        e.preventDefault();
-
-        console.log($(this).serialize());
-
-    });
-
     $('[data-toggle="tooltip"]').tooltip({
         html: true
     });
@@ -10794,32 +10785,10 @@ $(document).ready(function () {
 //  Tab end
 
 
-//  form-pickup
-
-    // console.log($('#form-pickup'));
-
-    $('#form-pickup').on('submit', function (e) {
-        e.preventDefault();
-
-        console.log($(this).serialize());
-
-    })
-
-//  form-pickup end
 
 
-//  form-delivery
 
-    // console.log($('#form-delivery'));
 
-    $('#form-delivery').on('submit', function (e) {
-        e.preventDefault();
-
-        console.log($(this).serialize());
-
-    })
-
-//  form-delivery end
 
 
 });

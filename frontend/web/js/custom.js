@@ -132,12 +132,10 @@ $(document).ready(function () {
 
     var observer = new MutationObserver(function (res) {
 
-        console.log(res);
-
         oldStateCountItem = res[0].removedNodes[0].data;
         NewStateCountItem = res[1].addedNodes[0].data;
 
-        if(parseInt(NewStateCountItem) > parseInt(oldStateCountItem)){
+        if (parseInt(NewStateCountItem) > parseInt(oldStateCountItem)) {
             $('.callback-add-item').css({
                 visibility: 'visible',
                 opacity: 1
@@ -162,14 +160,142 @@ $(document).ready(function () {
     window.onscroll = function () {
         var pYoffset = window.pageYOffset;
 
-        if(pYoffset >= 200){
+        if (pYoffset >= 200) {
             $('.callback-add-item').addClass('callback-add-item__fixed')
-        }else {
+        } else {
             $('.callback-add-item').removeClass('callback-add-item__fixed')
         }
 
     };
 
 //    callback-add-item end
+
+
+    // Vacancy
+
+    $("#vacancy-form").validate({
+        messages: {
+            'vacancy-name': 'Введите корректное имя',
+            'vacancy-phone': 'Введите корректный телефон',
+            'vacancy-vacant': 'Введите корректную должность'
+        }
+    });
+
+    $('.button-vacancy').on('click', function () {
+
+        if ($('.modal-vacancy').modal('show')) {
+
+            $('.vacancy-form').on('submit', function (e) {
+                e.preventDefault();
+
+                var dataValidVacant = $(this).serializeArray();
+
+                if (dataValidVacant[0].value !== '' && dataValidVacant[1].value !== '' && dataValidVacant[2].value !== '') {
+                    $.ajax({
+                        method: 'GET',
+                        url: '/email/vacancy',
+                        data: {vacant: $(this).serialize()},
+                        success: function (res) {
+
+                            console.log(res);
+
+                            $('.modal-vacancy').modal('hide');
+
+                            if (res) {
+                                $('.modal-vacancy-success').modal('show');
+                            }
+                        },
+                        error: function (e) {
+                            console.log('error: ', e);
+                        }
+                    })
+                }
+            });
+        }
+    });
+
+    // Vacancy end
+
+
+// Form dealer
+
+    // Validate
+    $("#dealer").validate({
+        messages: {
+            'cooperation-name': 'Введите корректное имя',
+            'cooperation-phone': 'Введите корректный телефон',
+            'cooperation-company': 'Введите название компании',
+            'cooperation-city': 'Введите название города',
+            'cooperation-email': 'Введите корректную почту'
+        }
+    });
+
+    $('#dealer').on('submit', function (e) {
+        e.preventDefault();
+
+        var dataValidDealer = $(this).serializeArray();
+
+        if (dataValidDealer[0].value !== '' && dataValidDealer[1].value !== '' && dataValidDealer[2].value !== '' && dataValidDealer[3].value !== '' && dataValidDealer[4].value !== '') {
+            $.ajax({
+                method: 'GET',
+                url: '/email/cooperation',
+                data: {cooperation: $(this).serialize()},
+                success: function (res) {
+
+                    console.log(res);
+
+                    if (res) {
+                        $('.modal-cooperation-success').modal('show');
+                        $("#dealer").trigger('reset');
+                    }
+                },
+                error: function (e) {
+                    console.log('error: ', e);
+                }
+            })
+        }
+
+    });
+// Form dealer end
+
+
+// Form specialists
+
+    $("#specialists").validate({
+        messages: {
+            'specialists-name': 'Введите корректное имя',
+            'specialists-phone': 'Введите корректный телефон',
+            'specialists-company': 'Введите название компании',
+            'specialists-city': 'Введите название города',
+            'specialists-email': 'Введите корректную почту'
+        }
+    });
+
+    $('#specialists').on('submit', function (e) {
+        e.preventDefault();
+
+        var dataValidSpec = $(this).serializeArray();
+
+        if (dataValidSpec[0].value !== '' && dataValidSpec[1].value !== '' && dataValidSpec[2].value !== '' && dataValidSpec[3].value !== '' && dataValidSpec[4].value !== '') {
+            $.ajax({
+                method: 'GET',
+                url: '/email/specialists',
+                data: {specialists: $(this).serialize()},
+                success: function (res) {
+
+                    if (res) {
+                        $('.modal-cooperation-success').modal('show');
+                        $("#specialists").trigger('reset');
+                    }
+                },
+                error: function (e) {
+                    console.log('error: ', e);
+                }
+            })
+        }
+
+    });
+
+// Form specialists end
 
 });

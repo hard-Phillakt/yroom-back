@@ -8359,10 +8359,10 @@ label {
 #nav-tab .nav-tab-active::before {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -5px;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 2px;
   background: #F3D517;
   transition: all .3s; }
 

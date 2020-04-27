@@ -125,9 +125,10 @@ AppAsset::register($this);
                     <ul class="footer__menu">
                         <li><a href="/product?q-cat=1" class="mb-10">Линолеум</a></li>
                         <li><a href="/product?q-cat=2" class="mb-10">Ламинат</a></li>
-                        <li><a href="/product?q-cat=3" class="mb-10">Ковра</a></li>
-                        <li><a href="/product?q-cat=4" class="mb-10">Плинтус</a></li>
-                        <li><a href="/product?q-cat=5" class="mb-10">Аксессуары</a></li>
+                        <li><a href="/product?q-cat=3" class="mb-10">Ковраы</a></li>
+                        <li><a href="/product?q-cat=4" class="mb-10">Ковровые дорожки</a></li>
+                        <li><a href="/product?q-cat=5" class="mb-10">Плинтусы пороги и аксессуары</a></li>
+                        <li><a href="/product?q-cat=6" class="mb-10">Все для укладки и ухода</a></li>
                     </ul>
                 </div>
 
@@ -173,7 +174,7 @@ AppAsset::register($this);
                     </div>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-2 col-sm-12 col-xs-12 ">
-                    <input id="cooperation-form-name__name" name="q" class="input pt-20 pr-5 pb-20 pl-20" type="text" placeholder="Поиск...">
+                    <input id="cooperation-form-name__search" name="q" class="input pt-20 pr-5 pb-20 pl-20" type="text" placeholder="Поиск...">
                     <div class="button-search-box">
                         <button type="submit" class="button-search">
                             <img src="<?= Url::home(true); ?>/img/icons/btn-search.svg" alt="btn-search">
