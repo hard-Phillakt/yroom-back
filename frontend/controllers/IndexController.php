@@ -30,7 +30,7 @@ class IndexController extends Controller
 
 //      Product
         $queryProduct = new YProduct();
-        $product = $queryProduct::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+        $product = $queryProduct::find()->where(['published' => 1, 'is_hit' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
         return $this->render('index', compact(['slider', 'category', 'product']));
     }

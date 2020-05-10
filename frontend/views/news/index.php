@@ -13,7 +13,7 @@ use \yii\helpers\Url;
             <div class="col-lg-4">
                 <div class="djc-c dfd-column pt-80 pb-80">
                     <div class="pl-30">
-                        <h4 class="title title-h4">Напольные покрытия</h4>
+                        <h4 class="title title-h4">Показать</h4>
 <!--                        <div class="pt-20">Показать</div>-->
                     </div>
 
@@ -23,13 +23,16 @@ use \yii\helpers\Url;
                                 <div class="sytetic-ui sytetic-ui__select">
                                     <div class="sytetic-ui__select_header sytetic-ui__select_arrow-bottom pt-10 pr-10 pb-10 pl-20"
                                          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                         aria-expanded="false">Новости
+                                         aria-expanded="false">Все
                                     </div>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                        <span class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Все</span>
 
                                         <span class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Новости</span>
 
                                         <span class="dropdown-menu_box-link pt-10 pb-10 pl-10 pr-10">Статьи</span>
+                                        
                                     </div>
                                 </div>
                             </div>

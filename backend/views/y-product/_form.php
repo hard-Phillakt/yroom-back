@@ -18,7 +18,10 @@ use mihaildev\elfinder\ElFinder;
 
 $yCategory = new YCategory();
 $queryCategory = $yCategory::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+$queryVse = $yCategory::find()->where(['slug' => 'vse'])->one();
 $arrData = ArrayHelper::map($queryCategory, 'id', 'title');
+unset($arrData[$queryVse->id]);
+
 ?>
 
 <div class="yproduct-form">
@@ -66,13 +69,19 @@ $arrData = ArrayHelper::map($queryCategory, 'id', 'title');
 
             <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'is_new')->textInput(['maxlength' => true]) ?>
+<!--            --><?//= $form->field($model, 'is_new')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'is_hit')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'is_hit')->dropDownList([
+                '0' => 'Нет',
+                '1' => 'Да',
+            ]) ?>
 
             <?= $form->field($model, 'discount_id')->textInput() ?>
 
-            <?= $form->field($model, 'published')->textInput() ?>
+            <?= $form->field($model, 'published')->dropDownList([
+                '0' => 'Нет',
+                '1' => 'Да',
+            ]) ?>
 
             <?= $form->field($model, 'prioritet')->textInput() ?>
 

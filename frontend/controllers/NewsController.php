@@ -18,7 +18,7 @@ class NewsController extends Controller
     {
         $queryNews = new YNews();
 
-        $news = $queryNews::find()->where(['essence' => '1','published' => 1])->asArray()->orderBy('prioritet ASC')->all();
+        $news = $queryNews::find()->where(['published' => 1])->asArray()->orderBy('prioritet ASC')->all();
 
         return $this->render('index', compact('news'));
     }

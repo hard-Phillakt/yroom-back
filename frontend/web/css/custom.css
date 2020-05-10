@@ -317,3 +317,97 @@ form .error {
 }
 
 /* Validate class error end*/
+
+
+/* Main slider*/
+
+@media (max-width: 2020px) and (min-width: 1800px) {
+    .swiper-button-prev {
+        left: 20%;
+    }
+
+    .swiper-button-next {
+        right: 20%;
+    }
+}
+
+@media (max-width: 1799px) and (min-width: 1700px) {
+    .swiper-button-prev {
+        left: 17%;
+    }
+
+    .swiper-button-next {
+        right: 17%;
+    }
+}
+
+@media (max-width: 1699px) and (min-width: 1600px) {
+    .swiper-button-prev {
+        left: 17%;
+    }
+
+    .swiper-button-next {
+        right: 17%;
+    }
+}
+
+@media (max-width: 1599px) and (min-width: 1500px) {
+    .swiper-button-prev {
+        left: 14%;
+    }
+
+    .swiper-button-next {
+        right: 14%;
+    }
+}
+
+@media (max-width: 1499px) and (min-width: 1401px) {
+    .swiper-button-prev {
+        left: 10%;
+    }
+
+    .swiper-button-next {
+        right: 10%;
+    }
+}
+
+/*@media (max-width: 1399px) and (min-width: 1300px) {*/
+    /*.swiper-button-prev {*/
+        /*left: 10%;*/
+    /*}*/
+
+    /*.swiper-button-next {*/
+        /*right: 10%;*/
+    /*}*/
+/*}*/
+
+@media (max-width: 1399px) and (min-width: 1300px) {
+
+}
+
+@media (max-width: 1299px) and (min-width: 1200px) {
+
+}
+
+@media (max-width: 1199px) and (min-width: 1100px) {
+
+}
+
+@media (max-width: 1099px) and (min-width: 1000px) {
+
+}
+
+@media (max-width: 999px) and (min-width: 992px) {
+
+}
+
+@media (max-width: 991px) and (min-width: 769px) {
+
+}
+
+@media (max-width: 768px) and (min-width: 300px) {
+
+}
+
+
+/* Main slider end*/

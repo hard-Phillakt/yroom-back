@@ -63,7 +63,7 @@ use mihaildev\elfinder\ElFinder;
             <?= $form->field($model, 'prioritet')->textInput() ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
             </div>
 
         </div>

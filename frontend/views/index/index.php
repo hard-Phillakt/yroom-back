@@ -154,19 +154,24 @@ use yii\helpers\Url;
                                                 <div class="card">
                                                     <div class="card-wrapper mb-30">
                                                         <div class="card__header djc-c pt-30 pb-30">
-                                                            <div class="card__img"
-                                                                 style="background: url(<?= $item['img_prev']; ?>)">
-                                                                <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div
-                                                                        class="card__discount"><?= $item['discount_id']; ?>
-                                                                        %
-                                                                    </div>
-                                                                <?php endif; ?>
-                                                            </div>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <span
+                                                                    class="card__img"
+                                                                    style="background: url(<?= $item['img_prev']; ?>)">
+                                                                    <?php if (!empty($item['discount_id'])): ?>
+                                                                        <div
+                                                                            class="card__discount"><?= $item['discount_id']; ?>
+                                                                            %
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                </span>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__content djc-c pt-20 pb-20 ml-60 mr-60">
-                                                            <?= $item['title']; ?>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <?= $item['title']; ?>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__footer">
@@ -243,19 +248,24 @@ use yii\helpers\Url;
                                                 <div class="card">
                                                     <div class="card-wrapper mb-30">
                                                         <div class="card__header djc-c pt-30 pb-30">
-                                                            <div class="card__img"
-                                                                 style="background: url(<?= $item['img_prev']; ?>)">
-                                                                <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div
-                                                                        class="card__discount"><?= $item['discount_id']; ?>
-                                                                        %
-                                                                    </div>
-                                                                <?php endif; ?>
-                                                            </div>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <span
+                                                                    class="card__img"
+                                                                    style="background: url(<?= $item['img_prev']; ?>)">
+                                                                    <?php if (!empty($item['discount_id'])): ?>
+                                                                        <div
+                                                                            class="card__discount"><?= $item['discount_id']; ?>
+                                                                            %
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                </span>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__content djc-c pt-20 pb-20 ml-60 mr-60">
-                                                            <?= $item['title']; ?>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <?= $item['title']; ?>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__footer">
@@ -322,19 +332,24 @@ use yii\helpers\Url;
                                                 <div class="card">
                                                     <div class="card-wrapper mb-30">
                                                         <div class="card__header djc-c pt-30 pb-30">
-                                                            <div class="card__img"
-                                                                 style="background: url(<?= $item['img_prev']; ?>)">
-                                                                <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div
-                                                                        class="card__discount"><?= $item['discount_id']; ?>
-                                                                        %
-                                                                    </div>
-                                                                <?php endif; ?>
-                                                            </div>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <span
+                                                                    class="card__img"
+                                                                    style="background: url(<?= $item['img_prev']; ?>)">
+                                                                    <?php if (!empty($item['discount_id'])): ?>
+                                                                        <div
+                                                                            class="card__discount"><?= $item['discount_id']; ?>
+                                                                            %
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                </span>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__content djc-c pt-20 pb-20 ml-60 mr-60">
-                                                            <?= $item['title']; ?>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <?= $item['title']; ?>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__footer">
@@ -401,19 +416,24 @@ use yii\helpers\Url;
                                                 <div class="card">
                                                     <div class="card-wrapper mb-30">
                                                         <div class="card__header djc-c pt-30 pb-30">
-                                                            <div class="card__img"
-                                                                 style="background: url(<?= $item['img_prev']; ?>)">
-                                                                <?php if (!empty($item['discount_id'])): ?>
-                                                                    <div
-                                                                        class="card__discount"><?= $item['discount_id']; ?>
-                                                                        %
-                                                                    </div>
-                                                                <?php endif; ?>
-                                                            </div>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <span
+                                                                    class="card__img"
+                                                                    style="background: url(<?= $item['img_prev']; ?>)">
+                                                                    <?php if (!empty($item['discount_id'])): ?>
+                                                                        <div
+                                                                            class="card__discount"><?= $item['discount_id']; ?>
+                                                                            %
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                </span>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__content djc-c pt-20 pb-20 ml-60 mr-60">
-                                                            <?= $item['title']; ?>
+                                                            <a href="<?= Url::home(true); ?>/product/card?id=<?= $item['id']; ?>">
+                                                                <?= $item['title']; ?>
+                                                            </a>
                                                         </div>
 
                                                         <div class="card__footer">

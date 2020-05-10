@@ -78,11 +78,15 @@ AppAsset::register($this);
                                 </span>
                                 <span class="cart-product-count">
                                     <?php
-                                    if(!empty($_SESSION['cart.qty'])){
-                                        echo $_SESSION['cart.qty'];
-                                    }else {
-                                        echo 0;
-                                    }
+
+                                        $session = Yii::$app->session;
+
+                                        $session->open();
+
+                                        if ($session->isActive){
+                                            echo $session->get('cart.qty');
+                                        }
+
                                     ?>
                                 </span>
                             </a>
@@ -126,9 +130,8 @@ AppAsset::register($this);
                         <li><a href="/product?q-cat=1" class="mb-10">Линолеум</a></li>
                         <li><a href="/product?q-cat=2" class="mb-10">Ламинат</a></li>
                         <li><a href="/product?q-cat=3" class="mb-10">Ковраы</a></li>
-                        <li><a href="/product?q-cat=4" class="mb-10">Ковровые дорожки</a></li>
-                        <li><a href="/product?q-cat=5" class="mb-10">Плинтусы пороги и аксессуары</a></li>
-                        <li><a href="/product?q-cat=6" class="mb-10">Все для укладки и ухода</a></li>
+                        <li><a href="/product?q-cat=4" class="mb-10">Ковролин</a></li>
+                        <li><a href="/product?q-cat=5" class="mb-10">Плинтусы и аксессуары</a></li>
                     </ul>
                 </div>
 

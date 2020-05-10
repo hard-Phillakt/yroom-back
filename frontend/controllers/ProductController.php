@@ -76,7 +76,6 @@ class ProductController extends Controller
         $queryProduct = new YProduct();
 
         $product = $queryProduct::find()
-//            ->where(['price' => $requestProduct,'published' => 1])
             ->andFilterWhere(['>=', 'price', $requestFilterProduct['price']['after']])
             ->andFilterWhere(['<=', 'price', $requestFilterProduct['price']['before']])
             ->asArray()

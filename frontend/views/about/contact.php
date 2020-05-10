@@ -36,7 +36,7 @@ use yii\helpers\Url;
 
                     <h1 class="title title-h4">Торговая компания “Ваша Комната”</h1>
 
-                    <div class="mt-20">г. Белгород ул. Урожайная, 1а</div>
+                    <div class="mt-20">г. Белгород, ул. Урожайная, 1а</div>
 
                     <div class="mt-20">
                         <a href="tel:+74722347005">+7 (4722) 34-70-05</a>
